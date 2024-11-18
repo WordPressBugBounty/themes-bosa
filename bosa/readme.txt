@@ -3,8 +3,8 @@ Contributors: bosathemes
 Tags: blog, portfolio, news, grid-Layout, one-column, two-columns, three-columns, flexible-header, left-sidebar, right-sidebar, custom-background, custom-colors, custom-logo, custom-menu, featured-images, footer-widgets, full-width-template, post-formats, rtl-language-support, theme-options, sticky-post, threaded-comments, translation-ready, block-styles, wide-blocks
 Requires at least: 5.0
 Requires PHP: 5.6
-Tested up to: 6.6
-Stable tag: 1.5.6
+Tested up to: 6.7
+Stable tag: 1.5.7
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -24,6 +24,9 @@ Bosa is multipurpose theme with beautifully crafted design. Bosa is beautiful, f
 Bosa includes support for WooCommerce, Elementor, Breadcrumb NavXT and Contact From 7.
 
 == Changelog ==
+= 1.5.7 =
+* Elementskit plugin added to getting started.
+
 = 1.5.6 =
 * Style updated.
 

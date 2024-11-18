@@ -105,13 +105,30 @@ jQuery( document ).ready( function($) {
                                                                                     data: {
                                                                                         action     : 'bosa_getting_started',
                                                                                         security : bosa_adi_install.nonce,
-                                                                                        slug : 'bosa-elementor-for-woocommerce',
+                                                                                        slug : 'elementskit-lite',
                                                                                         request : 7
                                                                                     },
                                                                                     success:function( response ) {
-                                                                                        var extra_uri, redirect_uri, dismiss_nonce;
-                                                                                        redirect_uri         = bosa_adi_install.adminurl+'/themes.php?page=advanced-import&browse=all';
-                                                                                        window.location.href = redirect_uri;
+                                                                                        setTimeout( function(){
+                                                                                            $.ajax({
+                                                                                                type: "POST",
+                                                                                                url: ajaxurl,
+                                                                                                data: {
+                                                                                                    action     : 'bosa_getting_started',
+                                                                                                    security : bosa_adi_install.nonce,
+                                                                                                    slug : 'bosa-elementor-for-woocommerce',
+                                                                                                    request : 8
+                                                                                                },
+                                                                                                success:function( response ) {
+                                                                                                    var extra_uri, redirect_uri, dismiss_nonce;
+                                                                                                    redirect_uri         = bosa_adi_install.adminurl+'/themes.php?page=advanced-import&browse=all';
+                                                                                                    window.location.href = redirect_uri;
+                                                                                                },
+                                                                                                error: function( xhr, ajaxOptions, thrownError ){
+                                                                                                    console.log( thrownError );
+                                                                                                }
+                                                                                            });
+                                                                                        }, 500);
                                                                                     },
                                                                                     error: function( xhr, ajaxOptions, thrownError ){
                                                                                         console.log( thrownError );

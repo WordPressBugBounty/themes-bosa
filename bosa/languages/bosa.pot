@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v3 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Bosa 1.5.6\n"
+"Project-Id-Version: Bosa 1.5.7\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2024-09-26 09:25:26+00:00\n"
+"POT-Creation-Date: 2024-11-18 10:24:48+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2077,8 +2077,8 @@ msgstr ""
 #: inc/getting-started/getting-started.php:60
 msgid ""
 "Clicking on get started will install and activate Bosa Elementor Addons for "
-"WooCommerce, Kirki, Advanced Import, Keon Toolset, Elementor, Breadcrumb "
-"NavXT and Contact Form 7."
+"WooCommerce, Kirki, Advanced Import, Keon Toolset, Elementor, ElementsKit "
+"Lite, Breadcrumb NavXT and Contact Form 7."
 msgstr ""
 
 #: inc/getting-started/getting-started.php:60
@@ -2090,7 +2090,7 @@ msgstr ""
 msgid "Sorry, you are not allowed to install plugins on this site."
 msgstr ""
 
-#: inc/getting-started/getting-started.php:209
+#: inc/getting-started/getting-started.php:212
 msgid "Unable to connect to the filesystem. Please confirm your credentials."
 msgstr ""
 
@@ -2326,7 +2326,7 @@ msgstr ""
 msgid "Demos"
 msgstr ""
 
-#: inc/theme-info/theme-info.php:1105 inc/theme-info/theme-info.php:1256
+#: inc/theme-info/theme-info.php:1105 inc/theme-info/theme-info.php:1259
 msgid "Rate Theme"
 msgstr ""
 
@@ -2381,110 +2381,110 @@ msgstr ""
 msgid "Go live with the website and enjoy it!"
 msgstr ""
 
-#: inc/theme-info/theme-info.php:1177
+#: inc/theme-info/theme-info.php:1180
 msgid "Need more features?"
 msgstr ""
 
-#: inc/theme-info/theme-info.php:1178
+#: inc/theme-info/theme-info.php:1181
 msgid "Upgrade to PRO version for more exciting features and Priority Support."
 msgstr ""
 
-#: inc/theme-info/theme-info.php:1179
+#: inc/theme-info/theme-info.php:1182
 msgid "Upgrade to PRO"
 msgstr ""
 
-#: inc/theme-info/theme-info.php:1185 inc/theme-info/theme-info.php:1187
+#: inc/theme-info/theme-info.php:1188 inc/theme-info/theme-info.php:1190
 msgid "Go to Customizer"
 msgstr ""
 
-#: inc/theme-info/theme-info.php:1186
+#: inc/theme-info/theme-info.php:1189
 msgid ""
 "All Settings, Header & Footer Options, Theme Options, Widgets and Menus are "
 "available via Customize screen."
 msgstr ""
 
-#: inc/theme-info/theme-info.php:1193
+#: inc/theme-info/theme-info.php:1196
 msgid "Documentation"
 msgstr ""
 
-#: inc/theme-info/theme-info.php:1194
+#: inc/theme-info/theme-info.php:1197
 msgid ""
 "Please check our full documentation for detailed information on how to "
 "Setup and Use Bosa."
 msgstr ""
 
-#: inc/theme-info/theme-info.php:1195
+#: inc/theme-info/theme-info.php:1198
 msgid "Read full documentation"
 msgstr ""
 
-#: inc/theme-info/theme-info.php:1201 inc/theme-info/theme-info.php:1203
+#: inc/theme-info/theme-info.php:1204 inc/theme-info/theme-info.php:1206
 msgid "Support Forum"
 msgstr ""
 
-#: inc/theme-info/theme-info.php:1202
+#: inc/theme-info/theme-info.php:1205
 msgid ""
 "Got theme support question or found bug? Simply create a support ticket "
 "with your queries and we will get back to you."
 msgstr ""
 
-#: inc/theme-info/theme-info.php:1209
+#: inc/theme-info/theme-info.php:1212
 msgid "Got sales related question?"
 msgstr ""
 
-#: inc/theme-info/theme-info.php:1210
+#: inc/theme-info/theme-info.php:1213
 msgid "Have any query before purchase, you are more than welcome to ask."
 msgstr ""
 
-#: inc/theme-info/theme-info.php:1211
+#: inc/theme-info/theme-info.php:1214
 msgid "Pre-sale Question?"
 msgstr ""
 
-#: inc/theme-info/theme-info.php:1217 inc/theme-info/theme-info.php:1219
+#: inc/theme-info/theme-info.php:1220 inc/theme-info/theme-info.php:1222
 msgid "Customization Request"
 msgstr ""
 
-#: inc/theme-info/theme-info.php:1218
+#: inc/theme-info/theme-info.php:1221
 msgid "Needed any customization for the theme, you can request from here."
 msgstr ""
 
-#: inc/theme-info/theme-info.php:1229
+#: inc/theme-info/theme-info.php:1232
 msgid "Free VS Pro Features"
 msgstr ""
 
-#: inc/theme-info/theme-info.php:1230
+#: inc/theme-info/theme-info.php:1233
 msgid ""
 "%s is a multipurpose free WordPress theme. However, Bosa Pro comes with "
 "more cool and awesome features that give you a flexible and wide range of "
 "options to build a full-fledged website."
 msgstr ""
 
-#: inc/theme-info/theme-info.php:1231
+#: inc/theme-info/theme-info.php:1234
 msgid "Check All Features"
 msgstr ""
 
-#: inc/theme-info/theme-info.php:1242
+#: inc/theme-info/theme-info.php:1245
 msgid "Pre-built Demos"
 msgstr ""
 
-#: inc/theme-info/theme-info.php:1243
+#: inc/theme-info/theme-info.php:1246
 msgid "To get started with ready-made starter site templates."
 msgstr ""
 
-#: inc/theme-info/theme-info.php:1244
+#: inc/theme-info/theme-info.php:1247
 msgid "View All Demos"
 msgstr ""
 
-#: inc/theme-info/theme-info.php:1254
+#: inc/theme-info/theme-info.php:1257
 msgid "Show us how much you like our theme."
 msgstr ""
 
-#: inc/theme-info/theme-info.php:1255
+#: inc/theme-info/theme-info.php:1258
 msgid ""
 "If you like our work, please give us a moment of your time to rate our "
 "theme 5 stars on "
 msgstr ""
 
-#: inc/theme-info/theme-info.php:1255
+#: inc/theme-info/theme-info.php:1258
 msgid ". It will give us more energy to work on this theme."
 msgstr ""
 

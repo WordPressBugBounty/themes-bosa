@@ -1,3 +1,6 @@
+= 1.5.7 =
+* Elementskit plugin added to getting started.
+
 = 1.5.6 =
 * Style updated.
 

@@ -286,7 +286,7 @@ if ( ! class_exists( 'Bosa_Theme_Info' ) ) {
                         echo '<div class="col"><div class="col-items">';
                         
                         if( $is_gs ) {
-                            if ( is_plugin_active('advanced-import/advanced-import.php') && is_plugin_active('keon-toolset/keon-toolset.php') && is_plugin_active('kirki/kirki.php') && is_plugin_active('elementor/elementor.php') && is_plugin_active('breadcrumb-navxt/breadcrumb-navxt.php') && is_plugin_active( 'contact-form-7/wp-contact-form-7.php' ) && is_plugin_active( 'bosa-elementor-for-woocommerce/bosa-elementor-for-woocommerce.php' ) ) {
+                            if ( is_plugin_active('advanced-import/advanced-import.php') && is_plugin_active('keon-toolset/keon-toolset.php') && is_plugin_active('kirki/kirki.php') && is_plugin_active('elementor/elementor.php') && is_plugin_active('breadcrumb-navxt/breadcrumb-navxt.php') && is_plugin_active( 'contact-form-7/wp-contact-form-7.php' ) && is_plugin_active( 'elementskit-lite/elementskit-lite.php' ) && is_plugin_active( 'bosa-elementor-for-woocommerce/bosa-elementor-for-woocommerce.php' ) ) {
                                 echo ('<h3>'.esc_html__('Plugins added successfully. You have completed Step 1.', 'bosa').'</h3>');
                             echo '</div></div>';
                             }else {
@@ -1159,6 +1159,9 @@ $config = array(
         ),
         'Keon Toolset' => array(
             'slug' => 'keon-toolset'
+        ),
+        'ElementsKit Lite' => array(
+            'slug' => 'elementskit-lite'
         ),
         'Advanced Import' => array(
             'slug' => 'advanced-import'
