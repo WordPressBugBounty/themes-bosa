@@ -4,7 +4,7 @@ Theme URI: https://bosathemes.com/bosa
 Author: Bosa Themes
 Author URI: https://bosathemes.com
 Description: Bosa is multipurpose theme with beautifully crafted design. Bosa is beautiful, fast, lightweight, responsive, extremely customizable, multipurpose theme that you can use as a foundation to build versatile sites such as business, startups, business agencies, corporate, law firms, blog, portfolio, travel, education, fitness, university portal, church, restaurant, medical, shop, magazines, finance, accounting, consulting and preferably ideal for any type of sites. Bosa works perfectly with Gutenberg and the most popular page builder Elementor that can easily drag-and-drop your ideas from the interface. Bosa is built with SEO, speed, and usability in mind with the multiple Header & Footer layouts, predesigned starter sites includes awesome Home & Inner Pages that is incredibly customizable and powerful enough to take a stand among the crowd. Bosa is compatible with all major plugins like WooCommerce, Yoast, Contact form 7, Mailchimp for WordPress, bbPress, etc. Looking for a Multipurpose theme? Look no further!
-Version: 1.5.8
+Version: 1.5.9
 Requires PHP: 5.6
 Tested up to: 6.7
 License: GNU General Public License v3 or later
@@ -12,7 +12,7 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: bosa
 Tags: blog, portfolio, news, grid-Layout, one-column, two-columns, three-columns, flexible-header, left-sidebar, right-sidebar, custom-background, custom-colors, custom-logo, custom-menu, featured-images, footer-widgets, full-width-template, post-formats, rtl-language-support, theme-options, sticky-post, threaded-comments, translation-ready, block-styles, wide-blocks
 
-Bosa WordPress Theme, Copyright 2024 Bosa Themes
+Bosa WordPress Theme, Copyright 2025 Bosa Themes
 Bosa is distributed under the terms of the GNU General Public License v3
 
 Bosa is based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc.
@@ -3547,8 +3547,7 @@ body:not(.home) .site-header.header-ten .bottom-header {
   top: 100%;
   display: block !important;
   opacity: 1;
-  right: 0;
-  min-width: 320px;
+  min-width: 310px;
   background-color: #fff;
   border: 1px solid #e2e2e2;
   padding: 20px;
@@ -4070,7 +4069,7 @@ body.offcanvas-slide-open .header-thirteen #offcanvas-menu {
 }
 
 .header-fifteen .mid-header {
-  z-index: 9;
+  z-index: 999;
 }
 .header-fifteen .mid-header .overlay {
   z-index: -1;
@@ -6901,8 +6900,6 @@ body .a2a_menu .a2a_menu_show_more_less span {
 .woocommerce ul.products li.product .woo-product-image,
 .woocommerce ul.products li.product .woocommerce-LoopProduct-link {
   position: relative;
-}
-.woocommerce ul.products li.product .woocommerce-LoopProduct-link {
   z-index: 1;
 }
 .woocommerce ul.products li.product .onsale {
@@ -7284,6 +7281,9 @@ body .a2a_menu .a2a_menu_show_more_less span {
 }
 .woocommerce .woocommerce-tabs #reviews #comments h2 {
   margin-bottom: 0;
+}
+.woocommerce .woocommerce-tabs #reviews #comments .woocommerce-Reviews-title:has(+ .commentlist) {
+  margin-bottom: 15px;
 }
 .woocommerce .woocommerce-tabs #reviews #comments ol {
   padding: 0;
@@ -7880,7 +7880,7 @@ body[class*=woocommerce] ul.products li .product-wishlist .yith-wcwl-add-to-wish
   font-size: 12px;
   margin: 0;
   width: 15px;
-  stroke-width: 2px;
+  stroke-width: 3px;
   vertical-align: middle;
 }
 body[class*=woocommerce] ul.products li .product-compare-wishlist {
@@ -7956,6 +7956,10 @@ body[class*=woocommerce] ul.products li .product-compare-wishlist .yith-wcwl-add
   top: -35px;
   visibility: visible;
 }
+body[class*=woocommerce] ul.products li .product-compare-wishlist .sp_preview_area {
+  position: static;
+  transform: none;
+}
 
 .product-wishlist .feedback,
 .yith-wcwl-add-to-wishlist .feedback {
@@ -8021,8 +8025,59 @@ body[class*=woocommerce] ul.products li .product-compare-wishlist .yith-wcwl-add
   float: left;
 }
 
+.woocommerce div.product form.grouped_form,
 .woocommerce div.product form.variations_form {
+  clear: both;
   float: none;
+}
+
+.woocommerce div.product form.grouped_form table,
+.woocommerce div.product form.grouped_form table tr:last-child {
+  border-width: 0;
+}
+
+.woocommerce div.product form.variations_form table.variations tr {
+  border-bottom: none;
+  margin-bottom: 8px;
+}
+.woocommerce div.product form.variations_form table.variations tr .reset_variations {
+  border: none;
+  border-radius: 3px;
+  padding: 7px 15px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.4s;
+  position: relative;
+  padding-left: 23px;
+}
+.woocommerce div.product form.variations_form table.variations tr .reset_variations:hover {
+  background-color: #086abd;
+  color: #fff;
+}
+.woocommerce div.product form.variations_form table.variations tr .reset_variations:before {
+  content: "\f01e";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin-left: 8px;
+  display: inline-block;
+  font-size: 12px;
+  line-height: 1;
+  transform: translateY(-45%);
+  font-family: "fontawesome";
+}
+
+.woocommerce:has(.sp_quick_view_content) div.product form.variations_form table.variations tr select {
+  min-width: 95%;
+}
+.woocommerce:has(.sp_quick_view_content) div.product form.variations_form table.variations tr .label {
+  min-width: auto;
+}
+
+.woocommerce div.product form.variations_form table tr:not(:has(.value, .reset_variations)) {
+  border-bottom: none;
+  display: none;
 }
 
 .summary .yith-wcwl-add-to-wishlist {
@@ -8149,15 +8204,15 @@ body[class*=woocommerce] ul.products li .product-compare-wishlist .yith-wcwl-add
   }
 }
 
-.summary:has(.variations_form) a.compare.button, .summary:has(.variations_form) .yith-wcwl-add-to-wishlist a:has(svg),
-.summary:has(.variations_form) .yith-add-to-wishlist-button-block a.yith-wcwl-add-to-wishlist-button:has(svg),
-.summary:has(.variations_form) .yith-wcwl-add-to-wishlist i {
+.summary:has(.variations_form, .grouped_form) a.compare.button, .summary:has(.variations_form, .grouped_form) .yith-wcwl-add-to-wishlist a:has(svg),
+.summary:has(.variations_form, .grouped_form) .yith-add-to-wishlist-button-block a.yith-wcwl-add-to-wishlist-button:has(svg),
+.summary:has(.variations_form, .grouped_form) .yith-wcwl-add-to-wishlist i {
   margin-top: 0;
   margin-bottom: 20px;
 }
-.summary:has(.variations_form) .yith-wcwl-add-to-wishlist a:has(svg),
-.summary:has(.variations_form) .yith-add-to-wishlist-button-block a.yith-wcwl-add-to-wishlist-button:has(svg),
-.summary:has(.variations_form) .yith-wcwl-add-to-wishlist i {
+.summary:has(.variations_form, .grouped_form) .yith-wcwl-add-to-wishlist a:has(svg),
+.summary:has(.variations_form, .grouped_form) .yith-add-to-wishlist-button-block a.yith-wcwl-add-to-wishlist-button:has(svg),
+.summary:has(.variations_form, .grouped_form) .yith-wcwl-add-to-wishlist i {
   margin-left: 0;
 }
 
@@ -8369,6 +8424,42 @@ body[class*=woocommerce] ul.products li.product-list .woo-product-image img {
 
 .wp-block-woocommerce-cart-totals-block .wc-block-components-totals-coupon__form input {
   height: auto;
+}
+
+.woocommerce .sp_quick_view_content .quantity input {
+  height: 45px;
+}
+
+.woocommerce .sp_quick_view_content .quantity button {
+  border: 0px solid;
+}
+
+.woocommerce .woo-float-info .button {
+  border-style: solid;
+}
+
+.yith-quick-view-content.woocommerce div.product tr.product {
+  height: auto;
+}
+
+.woocommerce-page #yith-quick-view-modal.open .yith-quick-view-content {
+  overflow-y: auto;
+  scrollbar-width: thin;
+  height: 100%;
+}
+
+@media screen and (min-width: 769px) {
+  .woocommerce-page .yith-quick-view-content.woocommerce div.product .bsep-image,
+.woocommerce-page .yith-quick-view-content.woocommerce div.product .entry-summary {
+    width: 50%;
+  }
+}
+.woocommerce-page #yith-quick-view-content div.summary {
+  overflow: initial;
+}
+
+.woocommerce-page #yith-quick-view-content .summary .summary-content {
+  padding-bottom: 10px;
 }
 
 #bosa-agency-contact .wpcf7 input[type=text],

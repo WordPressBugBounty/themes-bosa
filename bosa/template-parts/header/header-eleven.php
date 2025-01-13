@@ -56,7 +56,7 @@
 				    <?php if ( class_exists('WooCommerce' ) ) {
 				    	if( !get_theme_mod( 'disable_search_icon', false ) ){
 				    	?>
-	    	            <form class="header-search-form" role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>">
+	    	            <form class="header-search-form" method="get" action="<?php echo esc_url(home_url('/')); ?>">
 	    	                <input type="hidden" name="post_type" value="product" />
 	    	                <input class="header-search-input" name="s" type="text" placeholder="<?php esc_attr_e('Search products...', 'bosa'); ?>"/>
 	    	                <div class="d-inline-block"> 

@@ -4,11 +4,11 @@ Tags: blog, portfolio, news, grid-Layout, one-column, two-columns, three-columns
 Requires at least: 5.0
 Requires PHP: 5.6
 Tested up to: 6.7
-Stable tag: 1.5.8
+Stable tag: 1.5.9
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Bosa WordPress Theme, Copyright 2024 Bosa Themes
+Bosa WordPress Theme, Copyright 2025 Bosa Themes
 Bosa is distributed under the terms of the GNU General Public License v3
 
 Bosa is beautiful, fast, lightweight, responsive, extremely customizable, multipurpose theme with beautifully crafted design.
@@ -24,6 +24,11 @@ Bosa is multipurpose theme with beautifully crafted design. Bosa is beautiful, f
 Bosa includes support for WooCommerce, Elementor, Breadcrumb NavXT and Contact From 7.
 
 == Changelog ==
+
+= 1.5.9 =
+* Header layout update.
+* Style updated.
+
 = 1.5.8 =
 * Style updated.
 
@@ -234,9 +239,9 @@ Bosa includes support for WooCommerce, Elementor, Breadcrumb NavXT and Contact F
   License URL: https://pxhere.com/en/license
   Source: https://pxhere.com/en/photo/1438039
 
-  Logo, Copyright 2024 Bosa Themes
+  Logo, Copyright 2025 Bosa Themes
   License: GNU General Public License v3 http://www.gnu.org/licenses/gpl-3.0.html
 
-  Illustrations and icons used in Screenshot, Copyright 2024 Bosa Themes
+  Illustrations and icons used in Screenshot, Copyright 2025 Bosa Themes
   License: GNU General Public License v3 http://www.gnu.org/licenses/gpl-3.0.html
   

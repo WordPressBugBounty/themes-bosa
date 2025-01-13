@@ -1,3 +1,7 @@
+= 1.5.9 =
+* Header layout update.
+* Style updated.
+
 = 1.5.8 =
 * Style updated.
 

@@ -111,6 +111,10 @@ input, textarea {
     left: 4px;
 }
 
+.customize-control-kirki-checkbox:has(.description) label {
+    margin-bottom: 10px;
+} 
+
 /*repeater*/
 .repeater-fields {
     padding: 0;

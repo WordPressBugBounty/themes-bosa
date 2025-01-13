@@ -81,7 +81,7 @@
 			    			$search_class = 'd-lg-none';
 			    		}
 			    	?>
-			    	<form class="header-search-form <?php echo esc_attr( $search_class ); ?>" role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>">
+			    	<form class="header-search-form <?php echo esc_attr( $search_class ); ?>" method="get" action="<?php echo esc_url(home_url('/')); ?>">
     	                <input type="hidden" name="post_type" value="product" />
     	                <input class="header-search-input" name="s" type="text" placeholder="<?php esc_attr_e('Search products...', 'bosa'); ?>"/>
     	                <div class="d-inline-block"> 
