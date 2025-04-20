@@ -518,7 +518,10 @@ require get_theme_file_path( '/inc/getting-started/getting-started.php' );
 /**
  * Theme Info.
  */
-require get_theme_file_path( '/inc/theme-info/theme-info.php' );
+function bosa_theme_info_load() {
+	require get_theme_file_path( '/inc/theme-info/theme-info.php' );
+}
+add_action( 'init', 'bosa_theme_info_load' );
 
 /**
  * Load Jetpack compatibility file.

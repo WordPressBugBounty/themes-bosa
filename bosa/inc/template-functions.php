@@ -1237,3 +1237,79 @@ if( !function_exists( 'bosa_header_advertisement_banner' ) ){
 		<?php
 	}
 }
+
+/**
+ * Site preloader.
+ *
+ */
+function bosa_site_preloader() {
+	if( !get_theme_mod( 'disable_preloader', false )):
+		?>
+		<div id="site-preloader">
+			<div class="preloader-content">
+				<?php
+					$src = '';
+					if( get_theme_mod( 'preloader_animation', 'animation_one' ) == 'animation_one' ){
+						$src = get_template_directory_uri() . '/assets/images/preloader1.gif';
+					}elseif( get_theme_mod( 'preloader_animation', 'animation_one' ) == 'animation_two' ){
+						$src = get_template_directory_uri() . '/assets/images/preloader2.gif';
+					}elseif( get_theme_mod( 'preloader_animation', 'animation_one' ) == 'animation_three' ){
+						$src = get_template_directory_uri() . '/assets/images/preloader3.gif';
+					}elseif( get_theme_mod( 'preloader_animation', 'animation_one' ) == 'animation_four' ){
+						$src = get_template_directory_uri() . '/assets/images/preloader4.gif';
+					}elseif( get_theme_mod( 'preloader_animation', 'animation_one' ) == 'animation_five' ){
+						$src = get_template_directory_uri() . '/assets/images/preloader5.gif';
+					}
+
+					echo apply_filters( 'bosa_preloader',
+					sprintf( '<img src="%s" alt="%s">',
+						$src, ''
+					)); 
+				?>
+			</div>
+		</div>
+		<?php
+	endif; 
+}
+
+add_action( 'elementskit/template/before_header', 'bosa_site_preloader', 9 );
+
+/**
+ * Footer back to top.
+ *
+ */
+function bosa_footer_back_to_top() {
+	?>
+	<div id="back-to-top">
+	    <a href="javascript:void(0)"><i class="fa fa-angle-up"></i></a>
+	</div>
+	<!-- #back-to-top -->
+	<?php
+}
+
+
+add_action( 'elementskit/template/after_footer', 'bosa_footer_back_to_top', 11 );
+
+/**
+ * Adds opening page wrapper div for site content.
+ *
+ */
+function bosa_elementskit_page_wrapper_open() {
+	?>
+	<div id="page" class="site">
+	<?php
+}
+
+add_action( 'elementskit/template/before_header', 'bosa_elementskit_page_wrapper_open', 10 );
+
+/**
+ * Adds closing page wrapper div for site content.
+ *
+ */
+function bosa_elementskit_page_wrapper_close() {
+	?>
+	</div><!-- #page -->
+	<?php
+}
+
+add_action( 'elementskit/template/after_footer', 'bosa_elementskit_page_wrapper_close', 10 );

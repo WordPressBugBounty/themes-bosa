@@ -1,3 +1,7 @@
+= 1.6.1 =
+* Style update.
+* Translation loading early fix.
+
 = 1.6.0 =
 * Style issue fixed.
 
