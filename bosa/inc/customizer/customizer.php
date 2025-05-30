@@ -6,6 +6,59 @@
  */
 
 /**
+ * Add Bosa Header Footer info for Theme Customizer.
+ *
+ * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+ */
+function bosa_header_footer_info_section( $wp_customize ) {
+
+	if ( !class_exists( 'Kirki' ) ) {
+		return;
+	}
+
+	// Load custom section functions.
+	require get_template_directory() . '/inc/customizer/header-footer-info-section.php';
+
+	// Register custom section types.
+	$wp_customize->register_section_type( 'Bosa_Header_Footer_Info_Section' );
+
+	// Add sections.
+	$args = array(
+		'title'    => esc_html__( "Bosa now supports ElementsKit Header and Footer Builder.", 'bosa' ),
+		'text'    => esc_html__( "You can easily customize your header and footer directly with the Elementor editor.", 'bosa' ),
+		'note'    => esc_html__( "Note: If the options below are not functioning as expected, it is likely because the header and footer in your selected demo were built using ElementsKit Header and Footer Builder.", 'bosa' ),
+		'link'    => esc_html__( "For more information, please refer to our", 'bosa' ),
+		'url_text'    => esc_html__( "documentation.", 'bosa' ),
+		'url'  => 'https://bosathemes.com/docs/bosa/how-to-setup-recommended-plugins-features/elementskit-how-to-set-up-header-footer-with-the-builder/',
+		'priority'  => 1,
+	);
+
+	$header_args = array_merge( $args, array(
+		'panel'		=> 'header_options',
+	) );
+
+	$footer_args = array_merge( $args, array(
+		'panel'		=> 'footer_options',
+	) );
+
+	$wp_customize->add_section(
+		new Bosa_Header_Footer_Info_Section(
+			$wp_customize,
+			'bosa_header_info',
+			$header_args,
+		)
+	);
+	$wp_customize->add_section(
+		new Bosa_Header_Footer_Info_Section(
+			$wp_customize,
+			'bosa_footer_info',
+			$footer_args,
+		)
+	);
+}
+add_action( 'customize_register', 'bosa_header_footer_info_section' );
+
+/**
  * Add postMessage support for site title and description for the Theme Customizer.
  *
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.

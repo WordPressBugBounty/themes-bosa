@@ -4,7 +4,7 @@ Tags: blog, portfolio, news, grid-Layout, one-column, two-columns, three-columns
 Requires at least: 5.0
 Requires PHP: 5.6
 Tested up to: 6.8
-Stable tag: 1.6.1
+Stable tag: 1.6.2
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -24,6 +24,9 @@ Bosa is multipurpose theme with beautifully crafted design. Bosa is beautiful, f
 Bosa includes support for WooCommerce, Elementor, Breadcrumb NavXT and Contact From 7.
 
 == Changelog ==
+
+= 1.6.2 =
+* Style update.
 
 = 1.6.1 =
 * Style update.

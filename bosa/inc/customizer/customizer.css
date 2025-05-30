@@ -1,5 +1,6 @@
 /* Checkbox */
-input, textarea {
+input,
+textarea {
     font-size: 13px;
 }
 .customize-control.customize-control-checkbox .customize-inside-control-row {
@@ -8,31 +9,31 @@ input, textarea {
 .customize-control .customize-inside-control-row {
     margin-left: 0;
 }
-.customize-control-kirki-checkbox input[type="checkbox"] + label,
-.customize-control-checkbox input[type="checkbox"] + label,
-.customize-control-kirki-checkbox input[type="radio"] + label {
+.customize-control-kirki-checkbox input[type="checkbox"]+label,
+.customize-control-checkbox input[type="checkbox"]+label,
+.customize-control-kirki-checkbox input[type="radio"]+label {
     position: relative;
 }
-.customize-control-kirki-checkbox input[type="checkbox"] + label,
-.customize-control-checkbox input[type="checkbox"] + label {
+.customize-control-kirki-checkbox input[type="checkbox"]+label,
+.customize-control-checkbox input[type="checkbox"]+label {
     padding-left: 45px;
     display: block;
 }
-.customize-control-kirki-checkbox input[type="radio"] + label,
-.customize-control-checkbox input[type="radio"] + label {
+.customize-control-kirki-checkbox input[type="radio"]+label,
+.customize-control-checkbox input[type="radio"]+label {
     padding-left: 28px;
 }
 .customize-control-kirki-checkbox input[type="checkbox"],
 .customize-control-checkbox input[type="checkbox"],
 .customize-control-kirki-checkbox input[type="radio"] {
-    display:none;
+    display: none;
 }
-.customize-control-kirki-checkbox input[type="checkbox"] + label:before,
-.customize-control-kirki-checkbox input[type="checkbox"] + label:after,
-.customize-control-checkbox input[type="checkbox"] + label:before,
-.customize-control-checkbox input[type="checkbox"] + label:after,
-.customize-control-kirki-checkbox input[type="radio"] + label:before,
-.customize-control-kirki-checkbox input[type="radio"] + label:after {
+.customize-control-kirki-checkbox input[type="checkbox"]+label:before,
+.customize-control-kirki-checkbox input[type="checkbox"]+label:after,
+.customize-control-checkbox input[type="checkbox"]+label:before,
+.customize-control-checkbox input[type="checkbox"]+label:after,
+.customize-control-kirki-checkbox input[type="radio"]+label:before,
+.customize-control-kirki-checkbox input[type="radio"]+label:after {
     content: '';
     position: absolute;
     top: 50%;
@@ -43,8 +44,8 @@ input, textarea {
     -o-transform: translate(0, -50%) !important;
     transform: translate(0, -50%) !important;
 }
-.customize-control-checkbox input[type="checkbox"] + label:before,
-.customize-control-kirki-checkbox input[type="checkbox"] + label:before {
+.customize-control-checkbox input[type="checkbox"]+label:before,
+.customize-control-kirki-checkbox input[type="checkbox"]+label:before {
     width: 35px;
     height: 20px;
     left: 0px;
@@ -52,8 +53,8 @@ input, textarea {
     border: 1px solid #e4e3e1;
     border-radius: 15px;
 }
-.customize-control-kirki-checkbox input[type="checkbox"] + label:after,
-.customize-control-checkbox input[type="checkbox"] + label:after {
+.customize-control-kirki-checkbox input[type="checkbox"]+label:after,
+.customize-control-checkbox input[type="checkbox"]+label:after {
     content: "\f335";
     font-family: dashicons;
     width: 15px;
@@ -81,20 +82,20 @@ input, textarea {
     -ms-transition: all 200ms ease-out;
     transition: all 200ms ease-out;
 }
-.customize-control-kirki-checkbox input[type="checkbox"]:checked + label:before,
-.customize-control-checkbox input[type="checkbox"]:checked + label:before {
+.customize-control-kirki-checkbox input[type="checkbox"]:checked+label:before,
+.customize-control-checkbox input[type="checkbox"]:checked+label:before {
     background: #66BB6A;
 
 }
-.customize-control-kirki-checkbox input[type="checkbox"]:checked + label:after,
-.customize-control-checkbox input[type="checkbox"]:checked + label:after {
+.customize-control-kirki-checkbox input[type="checkbox"]:checked+label:after,
+.customize-control-checkbox input[type="checkbox"]:checked+label:after {
     content: "\f15e";
     font-family: dashicons;
     left: 17px;
     background: #fff;
 }
-.customize-control-kirki-checkbox input[type="radio"] + label:before,
-.customize-control-checkbox input[type="radio"] + label:before {
+.customize-control-kirki-checkbox input[type="radio"]+label:before,
+.customize-control-checkbox input[type="radio"]+label:before {
     width: 20px;
     height: 20px;
     left: 0px;
@@ -102,8 +103,8 @@ input, textarea {
     border: 1px solid #9B9B9B;
     border-radius: 100%;
 }
-.customize-control-kirki-checkbox input[type="radio"]:checked + label:after,
-.customize-control-checkbox input[type="radio"]:checked + label:after {
+.customize-control-kirki-checkbox input[type="radio"]:checked+label:after,
+.customize-control-checkbox input[type="radio"]:checked+label:after {
     background: #0085BA;
     border-radius: 100%;
     width: 12px;
@@ -113,7 +114,7 @@ input, textarea {
 
 .customize-control-kirki-checkbox:has(.description) label {
     margin-bottom: 10px;
-} 
+}
 
 /*repeater*/
 .repeater-fields {
@@ -137,7 +138,7 @@ input, textarea {
     position: relative;
 }
 
-.customize-control-kirki-radio-image input:checked + label:before {
+.customize-control-kirki-radio-image input:checked+label:before {
     content: "";
     display: block;
     border: 2px solid #2271B1;
@@ -148,17 +149,68 @@ input, textarea {
     right: 0;
 }
 
-.customize-control-kirki-radio-image input:checked + label img {
+.customize-control-kirki-radio-image input:checked+label img {
     box-shadow: none;
     border: none;
 }
 
 #accordion-section-theme_upsell,
-#accordion-section-theme_getting_started {
+#accordion-section-theme_getting_started,
+#accordion-section-bosa_footer_info,
+#accordion-section-bosa_header_info {
     display: block !important;
     min-height: auto;
 }
-
+#accordion-section-bosa_header_info .header-footer-info-wrapper,
+#accordion-section-bosa_footer_info .header-footer-info-wrapper {
+    padding: 20px 14px;
+    background-color: #fafafa;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 15px;
+}
+.header-footer-info-wrapper p,
+.header-footer-info-wrapper h4,
+.header-footer-info-wrapper a {
+    margin: 0;
+    line-height: 1.2;
+}
+.header-footer-info-wrapper p {
+    font-size: 12px;
+    color: #676767;
+    margin-left: 4px;
+}
+.header-footer-info-wrapper h4 {
+    font-size: 13px;
+    font-weight: 600;
+}
+.header-footer-info-wrapper h4.info-title {
+    margin-bottom: 8px;
+}
+.header-footer-info-wrapper p.info-desc {
+    margin-bottom: 5px;
+}
+.header-footer-info-wrapper .link-txt {
+    margin: 0 initial;
+}
+.header-footer-info-wrapper .link-txt a {
+    color: #086abd;
+    margin-top: 4px;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: capitalize;
+    transition: all 0.4s;
+}
+.header-footer-info-wrapper .link-txt a:hover {
+    color: #00437c;
+}
+.header-footer-info-wrapper h4.info-note {
+    margin-top: 16px;
+    font-size: 12px;
+    padding: 8px 10px;
+    border-radius: 4px;
+    background: #efefef;
+    font-weight: 400;
+}
 #customize-theme-controls #accordion-section-theme_getting_started .accordion-section-title {
     border-left: none;
 }
@@ -187,7 +239,7 @@ input, textarea {
     border-color: #0071a1;
 }
 #customize-theme-controls #accordion-section-theme_upsell .accordion-section-title:after,
-#customize-theme-controls #accordion-section-theme_getting_started .accordion-section-title:after{ 
+#customize-theme-controls #accordion-section-theme_getting_started .accordion-section-title:after {
     display: none;
 }
 .iris-picker .iris-strip {
@@ -210,8 +262,7 @@ input, textarea {
 #customize-control-add_to_cart_separator label,
 #customize-control-add_to_cart_style_separator label,
 #customize-control-icon_group_separator label,
-#customize-control-icon_group_style_separator label
-{
+#customize-control-icon_group_style_separator label {
     font-weight: 600;
     display: block;
 }
@@ -228,8 +279,7 @@ input, textarea {
 #customize-control-add_to_cart_separator label,
 #customize-control-add_to_cart_style_separator label,
 #customize-control-icon_group_separator label,
-#customize-control-icon_group_style_separator label
-{
+#customize-control-icon_group_style_separator label {
     background-color: #2271B1;
     color: #FFFFFF;
     text-align: center;
@@ -249,7 +299,7 @@ input, textarea {
 .customize-control-kirki-slider .kirki-control-form {
     margin-bottom: 0;
 }
-.customize-control-kirki-checkbox label, 
+.customize-control-kirki-checkbox label,
 .customize-control-kirki-radio label {
     vertical-align: top;
 }
