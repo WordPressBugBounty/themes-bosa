@@ -1,3 +1,6 @@
+= 1.6.3 =
+* Wordpress compatibility update.
+
 = 1.6.2 =
 * Style update.
 

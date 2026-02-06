@@ -86,10 +86,10 @@ blockquote:before {
 }
 @media screen and (min-width: 768px) {
   .comments-area .comment-respond .comment-form .logged-in-as,
-.comments-area .comment-respond .comment-form .comment-form-author,
-.comments-area .comment-respond .comment-form .comment-form-email,
-.comments-area .comment-respond .comment-form .comment-form-url,
-.comments-area .comment-respond .comment-form .form-submit {
+  .comments-area .comment-respond .comment-form .comment-form-author,
+  .comments-area .comment-respond .comment-form .comment-form-email,
+  .comments-area .comment-respond .comment-form .comment-form-url,
+  .comments-area .comment-respond .comment-form .form-submit {
     float: right;
   }
 }
