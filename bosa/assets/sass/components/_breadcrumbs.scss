@@ -1,0 +1,31 @@
+.breadcrumb-wrap {
+	margin-bottom: 45px;
+	@include bp(smx) {
+		margin-bottom: 20px;
+	}
+	.breadcrumbs {
+		background-color: #F8F8F8;
+		color: #717171;
+		@include font-size(14);
+		padding: 12px 15px;
+		font-weight: normal;
+		letter-spacing: 0.4px;
+		a {
+			position: relative;
+			@include bp(smx) {
+				@include font-size(13);
+			}
+		}
+	}
+}
+// -- inner banner css -- //
+.inner-banner-wrap {
+    .breadcrumb-wrap {
+    	background-color: #F8F8F8;
+    	margin-bottom: 0;
+    	.breadcrumbs {
+    		background-color: transparent;
+    		text-align: center;
+    	}
+    }
+}

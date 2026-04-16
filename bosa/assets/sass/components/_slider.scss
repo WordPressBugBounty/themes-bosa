@@ -1,0 +1,261 @@
+.slick-dotted.slick-slider {
+    margin-bottom: 0;
+}
+.slick-control .slick-dots,
+.main-slider-dots .slick-dots,
+.header-image-slider .slick-dots {
+	bottom: 0;
+	display: none;
+	margin: 30px auto 30px;
+	padding: 0;
+	position: relative;
+	width: 100%;
+	li {
+		height: auto;
+		width: auto;
+		list-style: none;
+		margin: 0 3px;
+		button {
+			background-color: transparent !important;
+			border: 2px solid #868686 !important;
+			font-size: inherit;
+			@include border-radius(50%);
+			width: 12px !important;
+			height: 12px !important;
+			@include transition(background-color 0.4s);
+			padding: 0;
+			&:before {
+				display: none;
+			}
+		}
+		&.slick-active {
+			button {
+				background-color: #868686 !important;
+			}
+		}
+		&:hover,
+		&:focus,
+		&:active {
+			button {
+				background-color: #868686 !important;
+			}
+		}
+	}
+}
+.site-header .header-image-slider {
+	.slick-dots {
+		li {
+			button {
+				width: 12px;
+				height: 12px;
+			}
+		}
+	}
+}
+.slick-slide {
+	&:hover,
+	&:focus,
+	&:active {
+		outline: 0;
+	}
+}
+// --slick nav arrow css-- //
+.slick-control {
+	margin: 0;
+	padding: 0;
+	li.slick-arrow {
+		list-style: none;
+		display: inline-block;
+		position: absolute;
+		top: 50%;
+		@include translate(0, -50%);
+		z-index: 9;
+		cursor: pointer;
+		span {
+			width: 25px;
+			height: 25px;
+			display: block;
+			border-top: 2px solid $light-color;
+			border-left: 2px solid $light-color;
+			@include transition (border-color 0.4s);
+		}
+		&.main-slider-prev,
+		&.highlight-posts-prev,
+		&.header-slider-prev {
+			left: 30px;
+			span {
+				@include rotate(-45);
+				margin-right: -5px;
+			}
+		}
+		&.main-slider-next,
+		&.highlight-posts-next,
+		&.header-slider-next {
+			right: 30px;
+			span {
+				@include rotate(135);
+				margin-left: -5px;
+			}
+		}
+		&:not(.slick-disabled) {
+			&:hover,
+			&:focus,
+			&:active {
+				span {
+					border-color: $alt-color;
+				}
+			}
+		}
+		&.slick-disabled {
+			opacity: 0.3;
+			cursor: not-allowed;
+		}
+		@include bp(mdx){
+			padding: 10px;
+			&.main-slider-prev,
+			&.highlight-posts-prev,
+			&.header-slider-prev {
+				left: 5px;
+			}
+			&.main-slider-next,
+			&.highlight-posts-next,
+			&.header-slider-next {
+				right: 5px;
+			}
+			span {
+				width: 9px;
+				height: 9px;
+			}
+		}
+	}
+	li.slick-hidden {
+		display: none !important;
+	}
+}
+
+.header-image-wrap {
+	.slick-control {
+		li.slick-arrow {
+			span {
+			    width: 15px;
+    			height: 15px;
+			}
+			&.header-slider-prev {
+				left: 10px;
+			}
+			&.header-slider-next {
+				right: 10px;
+			}
+		}
+	}
+	@include bp(lgx) {
+		.slick-dots {
+			display: none !important;
+		}
+	}
+}
+
+// --header and banner slick nav dots css-- //
+.header-image-slider.slick-slider,
+.main-slider-wrap,
+.header-slider-dots {
+	.slick-dots {
+		margin: 0;
+		padding: 0;
+		position: absolute;
+		left: 0;
+		right: 0;
+		margin: auto;
+		bottom: 20px;
+		height: auto;
+		z-index: 1;
+		li {
+			button {
+				background-color: transparent;
+				border-color: $light-color !important;
+			}
+			&.slick-active {
+				button {
+					background-color: $light-color !important;
+				}
+			}
+			&:hover,
+			&:focus,
+			&:active {
+				button {
+					background-color: $light-color !important;
+				}
+			}
+		}
+	}
+}
+.header-slider-dots {
+	.slick-dots {
+		bottom: 5px;
+		z-index: 9;
+		left: auto;
+		right: auto;
+		width: auto;
+	}
+}
+// --header slick nav arrow css-- //
+.section-highlight-post {
+	.wrap-arrow {
+		display: block;
+		margin-top: 40px;
+		text-align: center;
+	}
+	.highlight-posts-dots {
+		display: inline-block;
+		.slick-dots {
+			position: static;
+			margin: 0;
+		}
+	}
+	.slick-control {
+		li.slick-arrow {
+			background-color: lighten($dark-color, 40%);
+			position: static;
+			@include inline-flex;
+			@include align-items(center);
+			@include justify-content(center);
+			width: 30px;
+			height: 30px;
+			@include border-radius(100%);
+			@include translate(0, 0);
+			@include transition(all 0.4s);
+			&.highlight-posts-prev {
+				margin-right: 5px;
+			}
+			&.highlight-posts-next {
+				margin-left: 5px;
+			}
+			@include bp(smx) {
+				width: 30px;
+				height: 30px;
+			}
+			span {
+				height: 8px;
+				width: 8px;
+			}
+			&:not(.slick-disabled) {
+				&:hover,
+				&:focus,
+				&:active {
+					background-color: $alt-color;
+					span {
+						border-color: $light-color;
+					}
+				}
+			}
+		}
+	}
+}
+
+.sticky-header {
+	.header-image-wrap {
+		.slick-dots {
+			display: none !important;
+		}
+	}
+}

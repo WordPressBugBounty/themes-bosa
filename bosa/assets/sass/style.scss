@@ -1,0 +1,163 @@
+/*!
+Theme Name: Bosa
+Theme URI: https://bosathemes.com/bosa
+Author: Bosa Themes
+Author URI: https://bosathemes.com
+Description: Bosa is multipurpose theme with beautifully crafted design. Bosa is beautiful, fast, lightweight, responsive, extremely customizable, multipurpose theme that you can use as a foundation to build versatile sites such as business, startups, business agencies, corporate, law firms, blog, portfolio, travel, education, fitness, university portal, church, restaurant, medical, shop, magazines, finance, accounting, consulting and preferably ideal for any type of sites. Bosa works perfectly with Gutenberg and the most popular page builder Elementor that can easily drag-and-drop your ideas from the interface. Bosa is built with SEO, speed, and usability in mind with the multiple Header & Footer layouts, predesigned starter sites includes awesome Home & Inner Pages that is incredibly customizable and powerful enough to take a stand among the crowd. Bosa is compatible with all major plugins like WooCommerce, Yoast, Contact form 7, Mailchimp for WordPress, bbPress, etc. Looking for a Multipurpose theme? Look no further!
+Version: 1.6.4
+Requires PHP: 5.6
+Tested up to: 6.9
+License: GNU General Public License v3 or later
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
+Text Domain: bosa
+Tags: blog, portfolio, news, grid-Layout, one-column, two-columns, three-columns, flexible-header, left-sidebar, right-sidebar, custom-background, custom-colors, custom-logo, custom-menu, featured-images, footer-widgets, full-width-template, post-formats, rtl-language-support, theme-options, sticky-post, threaded-comments, translation-ready, block-styles, wide-blocks
+
+Bosa WordPress Theme, Copyright 2026 Bosa Themes
+Bosa is distributed under the terms of the GNU General Public License v3
+
+Bosa is based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+*/
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Normalize
+# Typography
+# Forms
+# Navigation
+	## Menu
+	## Pagination
+# Alignments
+# Clearings
+# Site Layout
+# Widgets
+# Content
+	## Posts and pages
+	## Comments
+# Infinite scroll
+# Media
+	## Captions
+	## Galleries
+*/
+
+@import "helpers/mixin";
+@import "helpers/breakpoints";
+@import "helpers/variables";
+
+
+/*--------------------------------------------------------------
+# Normalize
+----------------------------------------------------------------*/
+@import "base/normalize";
+
+/*--------------------------------------------------------------
+# Typography
+----------------------------------------------------------------*/
+@import "base/typography";
+
+/*--------------------------------------------------------------
+# Tables
+----------------------------------------------------------------*/
+@import "components/tables";
+
+/*--------------------------------------------------------------
+# Buttons
+----------------------------------------------------------------*/
+@import "components/buttons";
+
+/*--------------------------------------------------------------
+# Forms
+----------------------------------------------------------------*/
+@import "components/form";
+
+/*--------------------------------------------------------------
+# Navigation
+----------------------------------------------------------------*/
+@import "components/menus";
+
+/*--------------------------------------------------------------
+# Pagination
+----------------------------------------------------------------*/
+@import "components/pagination";
+
+/*--------------------------------------------------------------
+# WordPress Default Alignments 
+----------------------------------------------------------------*/
+@import "base/wp-default";
+
+/*--------------------------------------------------------------
+# Clearing
+----------------------------------------------------------------*/
+@import "base/clearings";
+
+/*--------------------------------------------------------------
+# Go to Top
+----------------------------------------------------------------*/
+@import "others/go-top";
+
+/*--------------------------------------------------------------
+# Social Icons
+----------------------------------------------------------------*/
+@import "components/social-icons";
+
+/*--------------------------------------------------------------
+# Post
+----------------------------------------------------------------*/
+@import "layout/post";
+
+/*--------------------------------------------------------------
+# Breadcrumbs
+----------------------------------------------------------------*/
+@import "components/breadcrumbs";
+
+/*--------------------------------------------------------------
+# Slider
+----------------------------------------------------------------*/
+@import "components/slider";
+
+/*--------------------------------------------------------------
+# Header
+----------------------------------------------------------------*/
+@import "layout/header-layouts";
+
+/*--------------------------------------------------------------
+# Main Slider
+----------------------------------------------------------------*/
+@import "layout/slider-layouts";
+
+/*--------------------------------------------------------------
+# Site Main
+----------------------------------------------------------------*/
+@import "layout/main";
+
+/*--------------------------------------------------------------
+# Footer
+----------------------------------------------------------------*/
+@import "layout/footer-layouts";
+
+/*--------------------------------------------------------------
+# Footer
+----------------------------------------------------------------*/
+@import "others/go-top";
+
+/*--------------------------------------------------------------
+# pages
+----------------------------------------------------------------*/
+@import "pages/pages";
+
+/*--------------------------------------------------------------
+# Comments
+----------------------------------------------------------------*/
+@import "components/comments";
+
+/*--------------------------------------------------------------
+# Widgets
+----------------------------------------------------------------*/
+@import "layout/widgets";
+
+/*--------------------------------------------------------------
+# Compatiable
+----------------------------------------------------------------*/
+@import "others/compatibility";
+@import "others/elementor-compatible";

@@ -4,7 +4,7 @@ Tags: blog, portfolio, news, grid-Layout, one-column, two-columns, three-columns
 Requires at least: 5.0
 Requires PHP: 5.6
 Tested up to: 6.9
-Stable tag: 1.6.3
+Stable tag: 1.6.4
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -24,6 +24,11 @@ Bosa is multipurpose theme with beautifully crafted design. Bosa is beautiful, f
 Bosa includes support for WooCommerce, Elementor, Breadcrumb NavXT and Contact From 7.
 
 == Changelog ==
+
+= 1.6.4 =
+* Php 8.5 compatiblity.
+* Repeater issue in Kirki 5.x fixed.
+* Style issue fixed.
 
 = 1.6.3 =
 * Wordpress Compatibility Update.

@@ -1,0 +1,70 @@
+.header-fourteen {
+    &.site-header {
+        @include bp(lgx) {
+            .site-branding {
+                text-align: center;
+                padding-top: 15px;
+                padding-bottom: 15px;
+                > a {
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+            }
+            .mobile-menu-container {
+                border-top: 1px solid rgba(243, 243, 243, 0.8);
+            }
+        }
+    }
+    .top-header {
+        position: relative;
+    }
+    .main-navigation-wrap {
+        @include align-items(inherit);
+    }
+    .bottom-contact {
+        @include flexbox;
+        @include align-items(center);
+        position: relative;
+        z-index: 1;
+        margin-left: 20px;
+        padding-left: 20px;
+        border-left: 1px solid #e6e6e6;
+        a {
+            display: block;
+            font-size: 14px;
+            position: relative;
+            padding-left: 40px;
+            text-align: left;
+            i {
+                font-size: 26px;
+                display: inline-block;
+                vertical-align: middle;
+                position: absolute;
+                left: 0;
+                top: 50%;
+                margin-right: 0;
+                @include translate(0, -50%);
+                @include transition(all 0.3s);
+            }
+            span {
+                color: #333;
+                display: block;
+                font-size: 14px;
+                font-weight: 700;
+            }
+            @include bp(xlx) {
+                padding-left: 40px;
+                font-size: 13px;
+                i {
+                    font-size: 18px;
+                    width: 35px;
+                    height: 35px;
+                    line-height: 35px;
+                }
+            }
+            @include bp(lgx) {
+                padding-left: 45px;
+            }
+        }
+    }
+}

@@ -4,7 +4,7 @@ Theme URI: https://bosathemes.com/bosa
 Author: Bosa Themes
 Author URI: https://bosathemes.com
 Description: Bosa is multipurpose theme with beautifully crafted design. Bosa is beautiful, fast, lightweight, responsive, extremely customizable, multipurpose theme that you can use as a foundation to build versatile sites such as business, startups, business agencies, corporate, law firms, blog, portfolio, travel, education, fitness, university portal, church, restaurant, medical, shop, magazines, finance, accounting, consulting and preferably ideal for any type of sites. Bosa works perfectly with Gutenberg and the most popular page builder Elementor that can easily drag-and-drop your ideas from the interface. Bosa is built with SEO, speed, and usability in mind with the multiple Header & Footer layouts, predesigned starter sites includes awesome Home & Inner Pages that is incredibly customizable and powerful enough to take a stand among the crowd. Bosa is compatible with all major plugins like WooCommerce, Yoast, Contact form 7, Mailchimp for WordPress, bbPress, etc. Looking for a Multipurpose theme? Look no further!
-Version: 1.6.3
+Version: 1.6.4
 Requires PHP: 5.6
 Tested up to: 6.9
 License: GNU General Public License v3 or later
@@ -256,16 +256,16 @@ dfn, cite, em, i {
 }
 
 blockquote, pre {
-  background-color: #fafafa;
+  background-color: rgb(249.9, 249.9, 249.9);
   border-width: 0 0 0 3px;
-  border-color: #d9d9d9;
+  border-color: rgb(216.75, 216.75, 216.75);
   border-style: solid;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   -ms-box-shadow: none;
   -o-box-shadow: none;
   box-shadow: none;
-  color: #1a1a1a;
+  color: rgb(25.5, 25.5, 25.5);
   margin: 0 0 15px 0;
   padding: 25px 22px;
   font-size: 18px;
@@ -321,7 +321,7 @@ blockquote cite {
 }
 
 abbr, acronym {
-  border-bottom: 1px dotted #4d4d4d;
+  border-bottom: 1px dotted rgb(76.5, 76.5, 76.5);
   cursor: help;
 }
 
@@ -553,18 +553,18 @@ a:active {
 ----------------------------------------------------------------*/
 table {
   border-collapse: collapse;
-  border: 1px solid #ebebeb;
+  border: 1px solid rgb(234.6, 234.6, 234.6);
   border-spacing: 0;
   width: 100%;
 }
 table tr {
-  border-bottom: 1px solid #ebebeb;
+  border-bottom: 1px solid rgb(234.6, 234.6, 234.6);
 }
 table th {
   font-weight: 700;
 }
 table th, table td {
-  border-bottom: 1px solid #ebebeb;
+  border-bottom: 1px solid rgb(234.6, 234.6, 234.6);
   padding: 8px;
 }
 table caption {
@@ -626,7 +626,7 @@ input[type=submit] {
 
 .button-outline {
   border: 1px solid #666666;
-  color: #1a1a1a;
+  color: rgb(25.5, 25.5, 25.5);
   display: inline-block;
   padding: 11px 30px;
   -webkit-transition: background-color 0.3s, border-color 0.4s, color 0.4s;
@@ -642,7 +642,7 @@ input[type=submit] {
 }
 
 .button-text {
-  color: #1a1a1a;
+  color: rgb(25.5, 25.5, 25.5);
   font-size: 14px;
   font-weight: 600;
 }
@@ -684,7 +684,7 @@ input[type=datetime-local],
 input[type=color],
 select {
   background-color: #ffffff;
-  border: 1px solid #d9d9d9;
+  border: 1px solid rgb(216.75, 216.75, 216.75);
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   -ms-border-radius: 0px;
@@ -715,7 +715,7 @@ select:focus {
 
 textarea {
   background-color: #ffffff;
-  border: 1px solid #d9d9d9;
+  border: 1px solid rgb(216.75, 216.75, 216.75);
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   -ms-border-radius: 0px;
@@ -737,7 +737,7 @@ legend {
 }
 
 select {
-  border: 1px solid #d9d9d9;
+  border: 1px solid rgb(216.75, 216.75, 216.75);
 }
 select:focus {
   outline: none;
@@ -1237,7 +1237,7 @@ form label {
   height: 40px;
   text-align: center;
   line-height: 37.5px;
-  border: 1px solid #e6e6e6;
+  border: 1px solid rgb(229.5, 229.5, 229.5);
   -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
   -ms-border-radius: 100%;
@@ -1252,8 +1252,8 @@ form label {
 }
 .page-numbers .page-numbers.current,
 .nav-links .page-numbers.current {
-  background-color: #4d4d4d;
-  border: 1px solid #4d4d4d;
+  background-color: rgb(76.5, 76.5, 76.5);
+  border: 1px solid rgb(76.5, 76.5, 76.5);
   color: #ffffff;
 }
 @media screen and (max-width: 575px) {
@@ -1279,8 +1279,8 @@ form label {
 .nav-links .page-numbers:hover.current,
 .nav-links .page-numbers:focus.current,
 .nav-links .page-numbers:active.current {
-  background-color: #4d4d4d;
-  border-color: #4d4d4d;
+  background-color: rgb(76.5, 76.5, 76.5);
+  border-color: rgb(76.5, 76.5, 76.5);
 }
 .page-numbers .page-numbers.dots,
 .nav-links .page-numbers.dots {
@@ -1340,8 +1340,8 @@ form label {
 }
 
 .post-navigation {
-  border-top: 1px solid #e6e6e6;
-  border-bottom: 1px solid #e6e6e6;
+  border-top: 1px solid rgb(229.5, 229.5, 229.5);
+  border-bottom: 1px solid rgb(229.5, 229.5, 229.5);
   padding-top: 40px;
   padding-bottom: 40px;
 }
@@ -1349,7 +1349,7 @@ form label {
 .comment-navigation {
   padding-top: 40px;
   padding-bottom: 40px;
-  border-bottom: 1px solid #e6e6e6;
+  border-bottom: 1px solid rgb(229.5, 229.5, 229.5);
 }
 
 .comment-navigation .nav-links:before, .comment-navigation .nav-links:after,
@@ -1809,7 +1809,7 @@ body:not(.single) .attachment:active .featured-image a img {
 .post .entry-meta a,
 .attachment .entry-meta a,
 .banner-content .entry-meta a {
-  color: #7a7a7a;
+  color: rgb(122.4, 122.4, 122.4);
   display: block;
   position: relative;
   text-transform: capitalize;
@@ -2972,7 +2972,7 @@ header.site-header .site-branding a ~ .site-title {
   padding-left: 15px;
 }
 #offcanvas-menu .header-navigation li {
-  border-bottom: 1px solid #ededed;
+  border-bottom: 1px solid rgb(237.15, 237.15, 237.15);
 }
 #offcanvas-menu .header-navigation li.current_page_item > a, #offcanvas-menu .header-navigation li.current-menu-item > a, #offcanvas-menu .header-navigation li.current_page_ancestor > a, #offcanvas-menu .header-navigation li.current-menu-ancestor > a {
   color: #086abd;
@@ -2986,7 +2986,7 @@ header.site-header .site-branding a ~ .site-title {
   width: 24px;
   text-align: center;
   float: right;
-  color: #b3b3b3;
+  color: rgb(178.5, 178.5, 178.5);
   -webkit-transition: transform 0.3s;
   -moz-transition: transform 0.3s;
   -ms-transition: transform 0.3s;
@@ -4482,8 +4482,8 @@ body.offcanvas-slide-open .header-thirteen #offcanvas-menu {
 .section-banner .banner-content .entry-header .cat-links a {
   font-size: 15px;
   font-weight: 400;
-  color: #ebebeb;
-  border-color: #ebebeb;
+  color: rgb(234.6, 234.6, 234.6);
+  border-color: rgb(234.6, 234.6, 234.6);
   -webkit-transition: all 0.4s;
   -moz-transition: all 0.4s;
   -ms-transition: all 0.4s;
@@ -4491,7 +4491,7 @@ body.offcanvas-slide-open .header-thirteen #offcanvas-menu {
   transition: all 0.4s;
 }
 .section-banner .banner-content .entry-meta a {
-  color: #ebebeb;
+  color: rgb(234.6, 234.6, 234.6);
   -webkit-transition: all 0.4s;
   -moz-transition: all 0.4s;
   -ms-transition: all 0.4s;
@@ -4499,7 +4499,7 @@ body.offcanvas-slide-open .header-thirteen #offcanvas-menu {
   transition: all 0.4s;
 }
 .section-banner .banner-content .entry-meta a:before {
-  color: #ebebeb;
+  color: rgb(234.6, 234.6, 234.6);
 }
 .section-banner .banner-content .entry-title {
   font-size: 40px;
@@ -4522,7 +4522,7 @@ body.offcanvas-slide-open .header-thirteen #offcanvas-menu {
   margin-left: 0;
 }
 .section-banner .banner-content .button-container .button-outline {
-  border-color: #ebebeb;
+  border-color: rgb(234.6, 234.6, 234.6);
   color: #ffffff;
 }
 .section-banner .banner-content .button-container .button-text {
@@ -4980,7 +4980,7 @@ body.offcanvas-slide-open .header-thirteen #offcanvas-menu {
   font-size: 0;
 }
 .site-footer .footer-menu ul li {
-  border-left: 1px solid #e6e6e6;
+  border-left: 1px solid rgb(229.5, 229.5, 229.5);
   display: inline-block;
   list-style: none;
   line-height: 1.1;
@@ -5037,7 +5037,7 @@ body.offcanvas-slide-open .header-thirteen #offcanvas-menu {
 }
 .site-footer.has-footer-bg .widget select {
   background-color: transparent;
-  color: #b3b3b3;
+  color: rgb(178.5, 178.5, 178.5);
 }
 
 @media screen and (min-width: 992px) {
@@ -5308,7 +5308,7 @@ body.offcanvas-slide-open .header-thirteen #offcanvas-menu {
   }
 }
 .author-info .author-content-wrap {
-  background-color: #f9f9f9;
+  background-color: rgb(249.39, 249.39, 249.39);
   padding: 30px;
   display: -webkit-box;
   display: -moz-box;
@@ -5560,7 +5560,7 @@ body.site-layout-frame .header-ten .hgroup-wrap {
   }
 }
 .comments-area .comment-notes {
-  color: #4d4d4d;
+  color: rgb(76.5, 76.5, 76.5);
   font-size: 13px;
 }
 .comments-area .comment-list {
@@ -5572,7 +5572,7 @@ body.site-layout-frame .header-ten .hgroup-wrap {
   list-style: none;
 }
 .comments-area .comment-list .comment-body {
-  border: 1px solid #e6e6e6;
+  border: 1px solid rgb(229.5, 229.5, 229.5);
   padding-top: 15px;
   padding-bottom: 25px;
   padding-right: 15px;
@@ -5645,7 +5645,7 @@ body.site-layout-frame .header-ten .hgroup-wrap {
   }
 }
 .comments-area .comment-list .comment-author .avatar {
-  background: #e6e6e6;
+  background: rgb(229.5, 229.5, 229.5);
   -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
   -ms-border-radius: 100%;
@@ -5680,13 +5680,13 @@ body.site-layout-frame .header-ten .hgroup-wrap {
   display: inline-block;
   margin-left: 7px;
   padding-left: 7px;
-  border-left: 1px solid #d9d9d9;
+  border-left: 1px solid rgb(216.75, 216.75, 216.75);
   line-height: 1;
 }
 @media screen and (max-width: 575px) {
   .comments-area .comment-list .comment-metadata {
     border-left: none;
-    border-top: 1px solid #d9d9d9;
+    border-top: 1px solid rgb(216.75, 216.75, 216.75);
     display: block;
     margin-left: 0px;
     margin-top: 10px;
@@ -5697,7 +5697,7 @@ body.site-layout-frame .header-ten .hgroup-wrap {
 .comments-area .comment-list .comment-metadata a {
   display: inline-block;
   font-size: 13px;
-  color: gray;
+  color: rgb(127.5, 127.5, 127.5);
 }
 @media screen and (max-width: 767px) {
   .comments-area .comment-list .comment-metadata a span {
@@ -5731,7 +5731,7 @@ body.site-layout-frame .header-ten .hgroup-wrap {
   border-width: 1px 0 0 1px;
   border-style: solid;
   transform: rotate(45deg);
-  border-color: #e6e6e6;
+  border-color: rgb(229.5, 229.5, 229.5);
   position: absolute;
   top: -9px;
   left: 60px;
@@ -5788,7 +5788,7 @@ body.site-layout-frame .header-ten .hgroup-wrap {
   padding-bottom: 3px;
 }
 .comment-respond .logged-in-as a:hover, .comment-respond .logged-in-as a:focus, .comment-respond .logged-in-as a:active {
-  color: #1a1a1a;
+  color: rgb(25.5, 25.5, 25.5);
 }
 .comment-respond .comment-form {
   margin-left: -15px;
@@ -5875,7 +5875,7 @@ body.site-layout-frame .header-ten .hgroup-wrap {
 }
 .comment-respond label {
   display: block;
-  color: #1a1a1a;
+  color: rgb(25.5, 25.5, 25.5);
   margin-bottom: 10px;
   font-weight: 500;
 }
@@ -5908,7 +5908,7 @@ body.site-layout-frame .header-ten .hgroup-wrap {
   padding: 0;
 }
 .widget ul li, .widget ol li {
-  border-bottom: 1px solid #e6e6e6;
+  border-bottom: 1px solid rgb(229.5, 229.5, 229.5);
   list-style: none;
   margin-bottom: 10px;
   padding-bottom: 10px;
@@ -5983,7 +5983,7 @@ body.site-layout-frame .header-ten .hgroup-wrap {
   -moz-flex-grow: 1;
   -ms-flex-grow: 1;
   flex-grow: 1;
-  color: #404040;
+  color: rgb(63.75, 63.75, 63.75);
   display: inline-block;
   font-size: 13px !important;
   margin: 3px 2px;
@@ -6014,14 +6014,14 @@ body.site-layout-frame .header-ten .hgroup-wrap {
   font-size: 13px;
 }
 .widget.widget_rss .rss-date {
-  color: #bfbfbf;
+  color: rgb(191.25, 191.25, 191.25);
 }
 .widget.widget_rss .rssSummary {
-  color: #a6a6a6;
+  color: rgb(165.75, 165.75, 165.75);
   line-height: 1.5;
 }
 .widget.widget_rss cite {
-  color: #404040;
+  color: rgb(63.75, 63.75, 63.75);
   font-style: normal;
 }
 .widget.widget_calendar table {
@@ -6178,7 +6178,7 @@ body.site-layout-frame .header-ten .hgroup-wrap {
 
 .latest-posts-widget .post {
   margin-bottom: 15px;
-  border-bottom: 1px solid #e6e6e6;
+  border-bottom: 1px solid rgb(229.5, 229.5, 229.5);
   padding-bottom: 15px;
   display: -webkit-box;
   display: -moz-box;
@@ -6302,7 +6302,7 @@ body.site-layout-frame .header-ten .hgroup-wrap {
   text-align: center;
 }
 .infinite-scroll #infinite-handle span {
-  background-color: #1a1a1a;
+  background-color: rgb(25.5, 25.5, 25.5);
   -webkit-border-radius: 30px;
   -moz-border-radius: 30px;
   -ms-border-radius: 30px;
@@ -6358,22 +6358,22 @@ body.site-layout-frame .header-ten .hgroup-wrap {
   width: 100%;
 }
 .mc4wp-form input[type=email]::-webkit-input-placeholder {
-  color: gray;
+  color: rgb(127.5, 127.5, 127.5);
   font-size: 13px;
 }
 
 .mc4wp-form input[type=email]:-moz-placeholder {
-  color: gray;
+  color: rgb(127.5, 127.5, 127.5);
   font-size: 13px;
 }
 
 .mc4wp-form input[type=email]::-moz-placeholder {
-  color: gray;
+  color: rgb(127.5, 127.5, 127.5);
   font-size: 13px;
 }
 
 .mc4wp-form input[type=email]:-ms-input-placeholder {
-  color: gray;
+  color: rgb(127.5, 127.5, 127.5);
   font-size: 13px;
 }
 
@@ -6512,7 +6512,7 @@ body.site-layout-frame .header-ten .hgroup-wrap {
   font-weight: normal;
 }
 .mobile-menu-container .slicknav_menu .slicknav_nav li {
-  border-top: 1px solid #e6e6e6;
+  border-top: 1px solid rgb(229.5, 229.5, 229.5);
 }
 .mobile-menu-container .slicknav_menu .slicknav_row {
   display: -webkit-box;
@@ -6533,7 +6533,7 @@ body.site-layout-frame .header-ten .hgroup-wrap {
   width: calc(100% - 45px);
 }
 .mobile-menu-container .slicknav_menu .slicknav_row .slicknav_item {
-  border-left: 1px solid #e6e6e6;
+  border-left: 1px solid rgb(229.5, 229.5, 229.5);
   width: 45px;
   padding: 0;
   display: -webkit-box;
@@ -7203,7 +7203,7 @@ body .a2a_menu .a2a_menu_show_more_less span {
   display: block;
 }
 .woocommerce .product_meta {
-  border-top: 1px solid #e6e6e6;
+  border-top: 1px solid rgb(229.5, 229.5, 229.5);
   padding-top: 15px;
   clear: both;
 }
@@ -7353,7 +7353,7 @@ body .a2a_menu .a2a_menu_show_more_less span {
 }
 .woocommerce .woocommerce-MyAccount-navigation ul li {
   list-style: none;
-  border-bottom: 1px solid #e6e6e6;
+  border-bottom: 1px solid rgb(229.5, 229.5, 229.5);
 }
 .woocommerce .woocommerce-MyAccount-navigation ul li:last-child {
   border-bottom: none;
@@ -7376,7 +7376,7 @@ body .a2a_menu .a2a_menu_show_more_less span {
   padding-left: 30px;
 }
 .woocommerce .woocommerce-MyAccount-content p a {
-  color: #a6a6a6;
+  color: rgb(165.75, 165.75, 165.75);
   -webkit-transition: color 0.4s;
   -moz-transition: color 0.4s;
   -ms-transition: color 0.4s;
@@ -7477,7 +7477,7 @@ body[class*=woocommerce] .widget.widget_products li .reviewer {
 }
 
 body .woocommerce.widget_price_filter .ui-slider .ui-slider-range {
-  background-color: #b3b3b3;
+  background-color: rgb(178.5, 178.5, 178.5);
 }
 body .woocommerce.widget_price_filter .ui-slider .ui-slider-handle {
   background-color: #EB5A3E;

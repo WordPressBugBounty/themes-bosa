@@ -1,0 +1,29 @@
+.site-footer {
+	&.site-footer-two {
+		.social-profile {
+			@include bp(lg) {
+				text-align: left;
+				margin-bottom: 0;
+			}
+		}
+		.footer-menu {
+			display: block;
+			margin-bottom: 5px;
+			ul {
+				li {
+					&:first-child {
+						border-left: none;
+					}
+				}
+			}
+		}
+		.bottom-footer-image-wrap {
+			@include bp(lg) {
+				text-align: right;
+			}
+			@include bp(lgx) {
+				margin-top: 20px;
+			}
+		}
+	}
+}

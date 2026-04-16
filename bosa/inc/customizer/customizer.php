@@ -1494,23 +1494,23 @@ function bosa_kirki_fields(){
 			'header_btn_bg_color' 	=> array(
 				'label'       		=> esc_html__( 'Non Transparent Header Button Background Color', 'bosa' ),
 				'description' 		=> esc_html__( 'For background button type only.', 'bosa' ),
-				'type'        		=> 'color',
+				'type'        		=> 'text',
 				'default'     		=> '#EB5A3E',
 			),
 			'header_btn_border_color' 	=> array(
 				'label'      	 		=> esc_html__( 'Non Transparent Header Button Border Color', 'bosa' ),
 				'description' 			=> esc_html__( 'For border button type only.', 'bosa' ),
-				'type'       		 	=> 'color',
+				'type'       		 	=> 'text',
 				'default'     			=> '#1a1a1a',
 			),
 			'header_btn_text_color' => array(
 				'label'       		=> esc_html__( 'Non Transparent Header Button Text Color', 'bosa' ),
-				'type'        		=> 'color',
+				'type'        		=> 'text',
 				'default'     		=> '#1a1a1a',
 			),
 			'header_btn_hover_color' => array(
 				'label'       		=> esc_html__( 'Non Transparent Header Button Hover Color', 'bosa' ),
-				'type'        		=> 'color',
+				'type'        		=> 'text',
 				'default'     		=> '#086abd',
 			),
 			'header_btn_text' => array(
@@ -1596,40 +1596,40 @@ function bosa_kirki_fields(){
 			'transparent_header_home_btn_bg_color' 	=> array(
 				'label'       		=> esc_html__( 'Transparent Header Button Background Color', 'bosa' ),
 				'description' 		=> esc_html__( 'For background button type only.', 'bosa' ),
-				'type'        		=> 'color',
+				'type'        		=> 'text',
 				'default'     		=> '#EB5A3E',
 			),
 			'transparent_header_home_btn_border_color' 	=> array(
 				'label'      	 		=> esc_html__( 'Transparent Header Button Border Color', 'bosa' ),
 				'description' 			=> esc_html__( 'For border button type only.', 'bosa' ),
-				'type'       		 	=> 'color',
+				'type'       		 	=> 'text',
 				'default'     			=> '#ffffff',
 			),
 			'transparent_header_home_btn_text_color' => array(
 				'label'       		=> esc_html__( 'Transparent Header Button Text Color', 'bosa' ),
-				'type'        		=> 'color',
+				'type'        		=> 'text',
 				'default'     		=> '#ffffff',
 			),
 			'transparent_header_btn_bg_color' 	=> array(
 				'label'       		=> esc_html__( 'Non Transparent Header Button Background Color', 'bosa' ),
 				'description' 		=> esc_html__( 'For background button type only.', 'bosa' ),
-				'type'        		=> 'color',
+				'type'        		=> 'text',
 				'default'     		=> '#EB5A3E',
 			),
 			'transparent_header_btn_border_color' 	=> array(
 				'label'      	 		=> esc_html__( 'Non Transparent Header Button Border Color', 'bosa' ),
 				'description' 			=> esc_html__( 'For border button type only.', 'bosa' ),
-				'type'       		 	=> 'color',
+				'type'       		 	=> 'text',
 				'default'     			=> '#1a1a1a',
 			),
 			'transparent_header_btn_text_color' => array(
 				'label'       		=> esc_html__( 'Non Transparent Header Button Text Color', 'bosa' ),
-				'type'        		=> 'color',
+				'type'        		=> 'text',
 				'default'     		=> '#1a1a1a',
 			),
 			'transparent_header_btn_hover_color' => array(
 				'label'       		=> esc_html__( 'Button Hover Color', 'bosa' ),
-				'type'        		=> 'color',
+				'type'        		=> 'text',
 				'default'     		=> '#086abd',
 			),
 			'transparent_header_btn_text' => array(
@@ -4742,23 +4742,23 @@ function bosa_kirki_fields(){
 			'slider_btn_bg_color' => array(
 				'label'       => esc_html__( 'Button Background Color', 'bosa' ),
 				'description' => esc_html__( 'For background button type only.', 'bosa' ),
-				'type'        => 'color',
+				'type'        => 'text',
 				'default'     => '#EB5A3E',
 			),
 			'slider_btn_border_color' => array(
 				'label'       => esc_html__( 'Button Border Color', 'bosa' ),
 				'description' => esc_html__( 'For border button type only.', 'bosa' ),
-				'type'        => 'color',
+				'type'        => 'text',
 				'default'     => '#ffffff',
 			),
 			'slider_btn_text_color' => array(
 				'label'       => esc_html__( 'Button Text Color', 'bosa' ),
-				'type'        => 'color',
+				'type'        => 'text',
 				'default'     => '#ffffff',
 			),
 			'slider_btn_hover_color' => array(
 				'label'       => esc_html__( 'Button Hover Color', 'bosa' ),
-				'type'        => 'color',
+				'type'        => 'text',
 				'default'     => '#086abd',
 			),
 			'slider_btn_text' => array(
@@ -5226,23 +5226,23 @@ function bosa_kirki_fields(){
 			'banner_btn_bg_color' => array(
 				'label'       => esc_html__( 'Button Background Color', 'bosa' ),
 				'description' => esc_html__( 'For background button type only.', 'bosa' ),
-				'type'        => 'color',
+				'type'        => 'text',
 				'default'     => '#EB5A3E',
 			),
 			'banner_btn_border_color' => array(
 				'label'       => esc_html__( 'Button Border Color', 'bosa' ),
 				'description' => esc_html__( 'For border button type only.', 'bosa' ),
-				'type'        => 'color',
+				'type'        => 'text',
 				'default'     => '#ffffff',
 			),
 			'banner_btn_text_color' => array(
 				'label'       => esc_html__( 'Button Text Color', 'bosa' ),
-				'type'        => 'color',
+				'type'        => 'text',
 				'default'     => '#ffffff',
 			),
 			'banner_btn_hover_color' => array(
 				'label'       => esc_html__( 'Button Hover Color', 'bosa' ),
-				'type'        => 'color',
+				'type'        => 'text',
 				'default'     => '#086abd',
 			),
 			'banner_btn_text' => array(
@@ -7174,23 +7174,23 @@ function bosa_kirki_fields(){
 			'blog_btn_bg_color' => array(
 				'label'       => esc_html__( 'Button Background Color', 'bosa' ),
 				'description' => esc_html__( 'For background button type only.', 'bosa' ),
-				'type'        => 'color',
+				'type'        => 'text',
 				'default'     => '#EB5A3E',
 			),
 			'blog_btn_border_color' => array(
 				'label'       => esc_html__( 'Button Border Color', 'bosa' ),
 				'description' => esc_html__( 'For border button type only.', 'bosa' ),
-				'type'        => 'color',
+				'type'        => 'text',
 				'default'     => '#1a1a1a',
 			),
 			'blog_btn_text_color' => array(
 				'label'       => esc_html__( 'Button Text Color', 'bosa' ),
-				'type'        => 'color',
+				'type'        => 'text',
 				'default'     => '#1a1a1a',
 			),
 			'blog_btn_hover_color' => array(
 				'label'       => esc_html__( 'Button Hover Color', 'bosa' ),
-				'type'        => 'color',
+				'type'        => 'text',
 				'default'     => '#086abd',
 			),
 			'blog_btn_text' => array(

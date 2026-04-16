@@ -1,0 +1,131 @@
+form {
+	position: relative;
+	@include font-size(15);
+}
+input:-webkit-autofill, 
+textarea:-webkit-autofill, 
+select:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0px 1000px white inset;
+  	background-color: transparent !important;
+}
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+select {
+	background-color: $light-color;
+	border: 1px solid darken($light-color, 15%);
+	@include border-radius(0px);
+	height: 42px;
+	resize: none;
+	padding: 0 10px;
+	&:focus {
+		border-color: #1a1a1a;
+		outline: 0;
+	}
+}
+textarea {
+	background-color: $light-color;
+	border: 1px solid darken($light-color, 15%);
+	@include border-radius(0px);
+	resize: none;
+	min-height: 200px;
+	overflow: auto;
+	padding: 10px;
+	width: 100%;
+	&:focus {
+		border-color: #1a1a1a;
+		outline: 0;
+	}
+}
+
+legend {
+    border: 0;
+    padding: 0;
+}
+select {
+	border: 1px solid darken($light-color, 15%);
+	&:focus{
+    	outline: none;
+	}
+}
+form label {
+ 	font-weight: bold; 
+}
+
+// Default Search css
+.search-form,
+.wp-block-search .wp-block-search__inside-wrapper {
+	position: relative;
+	input {
+		border-color: #d9d9d9;
+		width: 100%;
+		padding: 0 40px 0 10px;
+	}
+	.search-submit {
+		display: none;
+	}
+	label {
+		display: block;
+		margin: 0;
+	}
+	.search-button,
+	.wp-block-search__button {
+		background-color: #323232;
+		color: $light-color;
+		border: none;
+		@include border-radius(0px);
+		cursor: pointer;
+		padding: 10px 15px;
+		position: absolute;
+		right: 0;
+		top: 0;
+		height: 100%;
+		@include transition(background-color 0.4s);
+	}
+}
+.wpcf7 {
+	label {
+		display: block;
+		width: 100%;
+		font-weight: 400;
+	}
+	input[type="text"],
+	input[type="email"],
+	input[type="url"],
+	input[type="password"],
+	input[type="search"],
+	input[type="number"],
+	input[type="tel"],
+	input[type="range"],
+	input[type="date"],
+	input[type="month"],
+	input[type="week"],
+	input[type="time"],
+	input[type="datetime"],
+	input[type="datetime-local"],
+	input[type="color"],
+	textarea,
+	select {
+		width: 100%;
+		margin-top: 5px;
+	}
+	~ .addtoany_content {
+		display: none;
+	}
+}
+
+.wrap-detail-page .wpcf7 {
+	margin-top: 50px;
+}

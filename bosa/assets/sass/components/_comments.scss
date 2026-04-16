@@ -1,0 +1,325 @@
+.comments-area {
+    margin-top: 60px;
+    .comments-title {
+        @include font-size(22);
+        margin-bottom: 30px;
+        @include bp(smx) {
+            @include font-size(18);
+        }
+    }
+    #reply-title {
+        @include font-size(22);
+        margin-bottom: 10px;
+        text-align: left;
+        &:before {
+            @include variable-icon-font(f086);
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            margin-right: 8px;
+        }
+        small {
+            float: right;
+            margin-top: 8px;
+        }
+        @include bp(smx) {
+            @include font-size(18);
+        }
+    }
+    .comment-notes {
+        color: lighten($dark-color, 30%);
+        @include font-size(13);
+    }
+    .comment-list {
+        list-style:none;
+        margin: 0;
+        padding-left: 0;
+        li{
+          list-style: none;
+        }
+        .comment-body {
+            border: 1px solid darken($light-color, 10%);
+            padding-top: 15px;
+            padding-bottom: 25px;
+            padding-right: 15px;
+            position: relative;
+            margin-left: 31px;
+            padding-left: 45px;
+            margin-bottom: 40px;
+            @include bp(mdx){
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+            @include bp(smx) {
+                margin-left: 0;
+                margin-bottom: 30px;
+            }
+        }
+        .comment-content{
+            @include font-size(14);
+            margin-top: 10px;
+            ul {
+                padding-left: 10px;
+                list-style: initial;
+                li {
+                    &:before {
+                        display: none;
+                    }
+                }
+            }
+            ol {
+                padding-left: 10px;
+                &:before {
+                    display: none;
+                }
+                li {
+                    list-style: decimal;
+                }
+            }
+            a {
+                word-wrap: break-word;
+                color: inherit;
+            }
+        }
+        .bypostauthor {
+            display: block;
+        }
+        .comment-meta {
+            @include clearfix;
+        }
+        .comment-author {
+            display: inline-block;
+            @include bp(smx){
+                float: none;
+                @include clearfix;
+                @include flexbox;
+                align-items: center;
+            }
+           .avatar {
+                background: darken($light-color, 10%);
+                @include border-radius(100%);
+                border: 8px solid $light-color;
+                float: left;
+                height: 65px;
+                left: -31px;
+                margin-right: 15px;
+                position: absolute;
+                width: 65px;
+                top: 12px;
+                @include bp(smx){
+                    position: static;
+                }
+            }
+            .fn {
+                display: inline-block;
+                @include font-size(16);
+                font-weight: 600;
+                text-transform: capitalize;
+                a {
+                    color: inherit;
+                }
+            }
+            .says {
+                display: none;
+            }
+        }
+        .comment-metadata {
+            display: inline-block;
+            margin-left: 7px;
+            padding-left: 7px;
+            border-left: 1px solid darken($light-color, 15%);
+            line-height: 1;
+            @include bp(smx){
+                border-left: none;
+                border-top: 1px solid darken($light-color, 15%);
+                display: block;
+                margin-left: 0px;
+                margin-top: 10px;
+                padding-left: 0px;
+                padding-top: 10px;
+            }
+            a { 
+                display: inline-block;
+                @include font-size(13);
+                color: darken($light-color, 50%);
+                span {
+                    @include bp(mdx){
+                        margin-top: 0;
+                        margin-bottom: 5px;
+                        display: block;
+                    }
+                    &:before {
+                        @include variable-icon-font(7d);
+                        font-family: $icon-font;
+                        @include font-size(13);
+                        margin-right: 5px;
+                        vertical-align: top;
+                    }
+                }
+                &:hover,
+                &:focus,
+                &:active {
+                    color: $alt-color;
+                }
+            }
+        }
+        .children {
+            margin: 0;
+            li {
+                position: relative;
+                &:before {
+                    height: 20px;
+                    width: 20px;
+                    content: "";
+                    display: inline-block;
+                    background-color: $light-color;
+                    border-width: 1px 0 0 1px;
+                    border-style: solid;
+                    transform: rotate(45deg);
+                    border-color: darken($light-color, 10%);
+                    position: absolute;
+                    top: -9px;
+                    left: 60px;
+                    z-index: 1;
+                }
+            }
+        }
+        .reply {
+            text-align: right;
+            &:before,
+            &:after{
+                @include clearfix;
+            }
+            a {
+                background-color: #787878;
+                color: $light-color;
+                padding: 5px 10px;
+                font-size: 13px;
+                font-weight: 500;
+                @include transition(background-color 0.4s);
+                &:before {
+                    @include variable-icon-font(f3e5);
+                    font-family: 'Font Awesome 5 Free';
+                    font-weight: 900;
+                    margin-right: 5px;
+                }
+                &:hover,
+                &:focus,
+                &:active {
+                    background-color: $alt-color;
+                }
+            }
+        }
+    }
+    .no-comments {
+        text-align: center;
+        margin-bottom: 30px;
+        display: block;
+        @include font-size(18);
+        font-style: italic;
+    }
+}
+.comment-respond {
+    margin-top: 60px;
+    margin-bottom: 5px;
+    .logged-in-as {
+        margin-bottom: 20px;
+        a {
+            color: #7b7b7b;
+            display: inline-block;
+            margin-right: 10px;
+            padding-bottom: 3px;
+            &:hover,
+            &:focus,
+            &:active {
+                color: lighten($dark-color, 10%);
+            }
+        }
+    }
+    .comment-form {
+        @include clearfix;
+        margin-left: -15px;
+        margin-right: -15px;
+        input {
+            width: 100%;
+            &[type="submit"],
+            &[type="radio"],
+            &[type="checkbox"] {
+                width: auto;
+            }
+        }
+        .comment-form-cookies-consent {
+            label {
+                display: flex;
+                align-items: center;
+                margin-bottom: 0;
+            }
+        }
+        .submit {
+            @include border-radius(0);
+            padding: 12px 25px;
+            letter-spacing: 1px;
+        }
+        .comment-form-cookies-consent {
+            @include flexbox;
+            @include align-items(center);
+            width: 100%;
+            input {
+                float: left;
+            }
+            label {
+                float: left;
+                vertical-align: middle;
+                margin-top: 0;
+                @include calc(width, '100% - 30px');
+                margin-left: 15px;
+            }
+        }
+        .comment-subscription-form {
+            clear: both;
+        }
+        p {
+            float: left;
+            width: 33.33%;
+            padding: 0 15px;
+            margin-bottom: 30px;
+            label {
+                margin-top: 0;
+            }
+            @include bp(smx){
+                width: 100%;
+            }
+        }
+        .comment-form-comment {
+            width: 100%;
+        }
+        .comment-notes {
+            margin-bottom: 50px;
+            width: 100%;
+            color: lighten($dark-color, 20%);
+            line-height: 1.6;
+            span {
+                font-weight: 600;
+                color: $title-color;
+            }
+        }
+    }
+    label {
+        display: block;
+        color: lighten($dark-color, 10%);
+        margin-bottom: 10px;
+        font-weight: 500;
+    }
+}
+.required {
+    color: #000;
+}
+
+.woocommerce-Reviews {
+    .comment-form-rating {
+        padding: 0 15px;
+        clear: both;
+        .stars {
+            padding: 0;
+        }
+    }
+}

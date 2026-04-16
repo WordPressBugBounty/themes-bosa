@@ -1,0 +1,52 @@
+.header-home-icon {
+    a {
+        @include flexbox;
+        @include align-items (center);
+        background: $primary-color;
+        color: $light-color;
+        height: 100%;
+        padding: 0 20px;
+        margin-right: 20px;
+        @include transition(background-color 0.4s, color 0.4s);
+        &:hover,
+        &:focus,
+        &:active {
+            color: $light-color;
+        }
+    }
+}
+
+.header-date {
+    font-size: 13px;
+    margin-right: 15px;
+    font-weight: 600;
+    &:before {
+        @include variable-icon-font(f073);
+        font-family: "Font Awesome 5 Free";
+        margin-right: 8px;
+        font-size: 12px;
+    }
+}
+
+.header-twelve {
+    @include bp(lg) {
+        .header-navigation {
+            display: inline-block;
+        }
+    }
+    .header-advertisement-banner {
+        position: relative;
+        z-index: 1;
+        @include bp(md) {
+            text-align: right;
+        }
+    }
+    @include bp(mdx) {
+        .site-branding {
+            text-align: center;
+        }
+        .site-branding > a {
+            margin: auto;
+        }
+    }
+}

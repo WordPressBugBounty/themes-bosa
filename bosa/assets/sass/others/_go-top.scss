@@ -1,0 +1,39 @@
+#back-to-top {
+	bottom: 20px;
+	display: block;
+	position: fixed;
+	right: 20px;
+	z-index: 99991;
+	@include transition(background 0.5s);
+	a {
+		background-color: $light-color;
+		color: $title-color;
+		padding: 0;
+		height: 40px;
+		line-height: 40px;
+		text-align: center;
+		vertical-align: middle;
+		width: 40px;
+		display: block;
+		@include font-size(18);
+		@include transition(color 0.5s, background 0.5s, border 0.5s);
+		@include border-radius(100%);
+		border: 1px solid #e5e5e5;
+		@include box-shadow(0 2px 8px rgba(0, 0, 0, 0.05));
+		&:hover,
+		&:focus,
+		&:active {
+			color: $light-color;
+		}
+	}
+	@include bp(smx){
+		bottom: 10px;
+		right: 10px;
+		a {
+			@include font-size(16);
+			height: 30px;
+			line-height: 30px;
+			width: 30px;
+		}
+	}
+}

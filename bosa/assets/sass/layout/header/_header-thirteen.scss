@@ -1,0 +1,156 @@
+.header-thirteen {
+    .header-contact {
+        position: relative;
+        z-index: 1;
+        text-align: right;
+        ul {
+            li {
+                font-size: 16px;
+                font-weight: 600;
+                position: relative;
+                padding-left: 45px;
+                text-align: left;
+                margin-right: 20px;
+                i {
+                    font-size: 26px;
+                    position: absolute;
+                    left: 0;
+                    top: 50%;
+                    margin-right: 0;
+                    width: 35px;
+                    height: 35px;
+                    line-height: 35px;
+                    text-align: center;
+                    @include translate(0, -50%);
+                }
+                span {
+                    color: #333;
+                    display: block;
+                    font-size: 14px;
+                    font-weight: 700;
+                }
+                &:last-child {
+                    margin-right: 0;
+                }
+                @include bp(xlx) {
+                    padding-left: 40px;
+                    font-size: 13px;
+                    i {
+                        font-size: 18px;
+                        width: 35px;
+                        height: 35px;
+                        line-height: 35px;
+                    }
+                }
+            }
+            a {
+                display: block;
+            }
+        }
+    }
+    .header-icons {
+        position: relative;
+        z-index: 1;
+    }
+    .alt-menu-icon {
+        margin-left: 0;
+        a {
+            @include transition(background-color 0.4s);
+            .icon-bar {
+                background-color: $light-color;
+                right: auto;
+                left: 0;
+                &:before,
+                &:after {
+                    background-color: $light-color;
+                    left: 0;
+                    right: auto;
+                }
+            }
+            &:hover,
+            &:focus,
+            &:active {
+                background-color: $alt-color;
+                .icon-bar,
+                .icon-bar:before,
+                .icon-bar:after {
+                    background-color: $light-color !important;
+                }
+            }
+        }
+    }
+    .mid-header {
+        background-color: $light-color;
+    }
+    @include bp(lg) {
+        .top-header {
+            border-bottom: 1px solid rgba(243, 243, 243, 0.8);
+            position: relative;
+        }
+        .header-btn {
+            @include flexbox;
+            @include align-items(center);
+            @include justify-content(flex-end);
+            @include flex-grow(1);
+            a {
+                @include flexbox;
+                @include align-items(center);
+                @include justify-content(center);
+                height: 100%;
+                width: 100%;
+                @include flex-grow(1);
+            }
+        }
+        .alt-menu-icon {
+            a {
+                @include flexbox;
+                @include justify-content(center);
+                @include align-items (center);
+                height: 100%;
+                margin-right: 20px;
+                width: 50px;
+            }
+        }
+    }
+    @include bp(lgx) {
+        .alt-menu-icon {
+            border-bottom: 1px solid rgba(243, 243, 243, 0.8);
+            padding: 0;
+            a {
+                padding: 5px 0;
+                &:hover,
+                &:focus,
+                &:active {
+                    .iconbar-label {
+                        color: #FFFFFF;
+                    }
+                }
+            }
+        }
+        .top-header {
+            border-bottom: none;
+        }
+        .mobile-menu-container {
+            border-top: 1px solid rgba(243, 243, 243, 0.8);
+        }
+        .top-header-inner {
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+        .site-branding {
+            text-align: center;
+        }
+        .site-branding > a {
+            margin: auto;
+        }
+    }
+    #offcanvas-menu {
+        right: auto;
+        left: -100%;
+        @include transition(left 0.5s, visibility 0.5s);
+    }
+}
+body.offcanvas-slide-open .header-thirteen  #offcanvas-menu {
+    right: auto;
+    left: 0;
+}

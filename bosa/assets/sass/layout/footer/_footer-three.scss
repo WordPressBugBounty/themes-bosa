@@ -1,0 +1,34 @@
+.site-footer {
+	&.site-footer-three {
+		.bottom-footer {
+			text-align: left;
+		}
+		.social-profile {
+			margin-bottom: 0;
+		}
+		.footer-desc-wrap {
+			text-align: right;
+		}
+		.text-center {
+			.footer-desc-wrap {
+				text-align: center;
+			}
+		}
+		@include bp(lgx) {
+			.bottom-footer {
+				text-align: center;
+			}
+			.social-profile {
+				margin-bottom: 30px;
+			}
+			.footer-desc-wrap {
+				text-align: center;
+			}
+		}
+		@include bp(smx) {
+			.social-profile {
+				margin-bottom: 20px;
+			}
+		}
+	}
+}

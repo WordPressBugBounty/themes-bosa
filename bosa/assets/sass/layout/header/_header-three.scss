@@ -1,0 +1,20 @@
+.header-three {
+    .mid-header {
+        .site-branding {
+            text-align: center;
+        }
+        .site-branding > a {
+            margin: auto;
+        }
+        @include bp(lg) {
+            .custom-logo-link {
+                margin: 0 auto;
+            }
+        }
+    }
+    .bottom-header {
+        .header-icons {
+            padding: 10px 0;
+        }
+    }
+}

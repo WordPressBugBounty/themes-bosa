@@ -1,0 +1,30 @@
+.section-ralated-post {
+	padding: 50px 0 20px;
+	@include bp(smx) {
+		padding: 40px 0 0;
+		margin-top: 40px;
+	}
+}
+.wrap-ralated-posts {
+	.post {
+		margin-bottom: 30px;
+		.featured-image {
+			margin-right: 0;
+		}
+		.entry-content {
+			background-color: #FAFAFA;
+			border: none;
+			margin: 0;
+			padding: 20px;
+			text-align: center;
+			.entry-title {
+				@include font-size(18);
+				margin-bottom: 0;
+			}
+		}
+	}
+	.not-found {
+		font-size: 18px;
+		color: lighten($title-color, 40%);
+	}
+}

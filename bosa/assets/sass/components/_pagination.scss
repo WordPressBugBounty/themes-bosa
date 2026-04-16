@@ -1,0 +1,203 @@
+// pagination
+// -----------------------------------------------------------
+.pagination {
+	@include justify-content(center);
+	margin-top: 40px;
+	margin-bottom: 50px;
+	.home & {
+		margin-bottom: 0;
+	}
+	@include bp(smx) {
+		margin-top: 30px;
+		margin-bottom: 40px;
+	}
+}
+.nav-links {
+	@include clearfix;
+}
+.page-numbers, 
+.nav-links {
+	margin: 0;
+	padding: 0;
+	li {
+		list-style: none;
+		display: inline-block;
+	}
+	.page-numbers {
+		color: #4D4D4D;
+		display: inline-block;
+		@include font-size(16);
+		width: 40px;
+		height: 40px;
+		text-align: center;
+		line-height: 37.5px;
+		border: 1px solid darken($light-color, 10%);
+		@include border-radius(100%);
+		margin: 0 3px;
+		text-decoration: none;
+		@include transition(background-color 0.3s, color 0.3s, border-color 0.3s);
+		&.current {
+			background-color: lighten($dark-color, 30%);
+			border: 1px solid lighten($dark-color, 30%);
+			color: $light-color;
+		}
+		@include bp(smx) {
+			@include font-size(13);
+			width: 30px;
+			height: 30px;
+			line-height: 28px;
+			margin: 0 5px;
+		}
+		&:hover,
+		&:focus,
+		&:active {
+			background-color: $alt-color;
+			border-color: $alt-color;
+			color: $light-color;
+			text-decoration: none;
+			&.current {
+				background-color: lighten($dark-color, 30%);
+				border-color: lighten($dark-color, 30%);
+			}
+		}
+		&.dots {
+			font-size: 22px;
+	    	border: none;
+	    	letter-spacing: 4px;
+	    	margin: 0;
+	    	&:hover,
+			&:focus,
+			&:active {
+				color: inherit;
+				background-color:inherit;
+				border: 1px solid inherit;
+	    	}
+		}
+		&.next,
+		&.prev {
+			width: 60px;
+			@include border-radius(50px);
+			span {
+				font-size: 0;
+				&:before {
+					font-family: 'Font Awesome 5 Free';
+					font-weight: 900;
+					font-size: 16px;
+				}
+			}
+			@include bp(smx) {
+				width: 45px;
+				span {
+					&:before {
+						font-size: 13px;
+					}
+				}
+			}
+		}
+		&.next {
+			span {
+				&:before {
+					@include variable-icon-font(f054);
+				}
+			}
+		}
+		&.prev {
+			span {
+				&:before {
+					@include variable-icon-font(f053);
+				}
+			}
+		}
+	}
+}
+
+
+// single page navigation css
+// -----------------------------------------------------
+.post-navigation {
+	border-top: 1px solid darken($light-color, 10%);
+	border-bottom: 1px solid darken($light-color, 10%);
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
+.comment-navigation {
+	padding-top: 40px;
+	padding-bottom: 40px;
+	border-bottom: 1px solid darken($light-color, 10%);
+}
+.comment-navigation,
+.posts-navigation,
+.post-navigation {
+	.nav-links {
+		@include clearfix;
+	}
+	.nav-previous,
+	.nav-next {
+		width: 50%;
+		color: $title-color;
+		a {
+			display: inline-block;
+			position: relative;
+			@include font-size(16);
+			font-weight: 600;
+			color: $title-color;
+		 	&:before {
+			 	font-family: 'Font Awesome 5 Free';
+			 	font-weight: 900;
+			 	display: block;
+			 	@include font-size(16);
+			 	vertical-align: middle;
+			 	position: absolute;
+			 	top: 50%;
+			 	@include translate(0, -50%);
+		 	}
+		}
+	}
+	.nav-previous {
+		float: left;
+		@include bp(mdx){
+			width: 100%;
+		}
+		a {
+			padding-left: 20px;
+			&:before {
+				left: 0;
+				@include variable-icon-font(f053);
+				@include transition (left 0.5s);
+			}
+			&:hover {
+				&:before {
+					left: -5px;
+				}
+			}
+		}
+	}
+	.nav-previous ~ .nav-next {
+		@include bp(mdx){ 
+			border-top: 1px solid #ececec;
+			margin-top: 15px;
+			padding-top: 15px;
+		}
+	}
+	.nav-next {
+		float: right;
+		text-align: right;
+		@include bp(mdx){
+			float: left;
+			width: 100%;
+		}
+		a {
+			padding-right: 20px;
+			&:before {
+				@include variable-icon-font(f054);
+			   	right: 0;
+			   	@include transition (right 0.5s);
+			}
+			&:hover {
+				&:before {
+					right: -5px;
+				}
+			}
+		}
+	}
+}

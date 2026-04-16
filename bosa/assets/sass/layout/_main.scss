@@ -1,0 +1,63 @@
+// --slide section css-- //
+.site-content {
+	padding-bottom: 70px;
+	padding-top: 70px;
+	@include bp(mdx) {
+		padding-bottom: 50px; 
+		padding-top: 50px;
+	}
+	.sidebar {
+		@include bp(lgx) {
+			padding-top: 50px;
+			&.left-sidebar {
+				padding-top: 0;
+				padding-bottom: 50px;
+			}
+		}
+	}
+}
+
+.section-highlight-post {
+	padding-top: 70px;
+	@include bp(mdx) {
+		padding-top: 50px; 
+	}
+}
+
+.right-sidebar {
+	padding-left: 50px;
+	@include bp(lgx) {
+		padding-left: 15px;
+	}
+}
+.left-sidebar {
+	padding-right: 50px;
+	@include bp(lgx) {
+		padding-right: 15px;
+	}
+}
+
+// --menu border css when slider is disable -- //
+.home .site-content {
+	border-top: 1px solid #f2f2f2;
+}
+.home .section-banner ~ .site-content {
+	border-top: none;
+}
+
+.section-post-area {
+	.pagination {
+		@include bp(md) {
+			margin-top: 70px;
+		}
+	}
+}
+
+// --feature post area css-- //
+@import "feature-post/feature-post";
+
+// --highlight post area css-- //
+@import "highlight-post/highlight-post";
+
+// --related post area css-- //
+@import "related-post";

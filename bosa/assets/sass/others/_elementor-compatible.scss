@@ -1,0 +1,99 @@
+// Agency
+#bosa-agency-contact .wpcf7 input[type=text],
+#bosa-agency-contact .wpcf7 input[type=email], 
+#bosa-agency-contact .wpcf7 textarea {
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	-o-border-radius: 15px;
+	border-radius: 15px;
+}
+#bosa-agency-contact .wpcf7 input[type=submit] {
+	border-radius: 25px;
+	-webkit-border-radius: 25px;
+	-moz-border-radius: 25px;
+	-o-border-radius: 25px;
+	text-transform: uppercase;
+	background-color: #FF7B2F;
+	font-weight: 600;
+}
+#bosa-agency-contact .wpcf7 input[type=submit]:hover,
+#bosa-agency-contact .wpcf7 input[type=submit]:active,
+#bosa-agency-contact .wpcf7 input[type=submit]:focus {
+	border-radius: 25px;
+	-webkit-border-radius: 25px;
+	-moz-border-radius: 25px;
+	-o-border-radius: 25px;
+	text-transform: uppercase;
+	background-color: #2C75BA;
+}
+// Insurance
+#bosa-insurance-contact .wpcf7 input[type=text], 
+#bosa-insurance-contact .wpcf7 input[type=email], 
+#bosa-insurance-contact .wpcf7 textarea {
+	border: none;
+	background-color: #fff;
+	height: 55px;
+	padding-left: 20px;
+	margin-bottom: 20px
+}
+#bosa-insurance-contact .wpcf7 input[type=submit] {
+	background-color: #233D62;
+	padding: 20px 35px;
+	font-weight: 600;
+	font-size: 15px;
+}
+#bosa-insurance-contact .wpcf7 input[type=submit]:hover, 
+#bosa-insurance-contact .wpcf7 input[type=submit]:active, 
+#bosa-insurance-contact .wpcf7 input[type=submit]:focus {
+	background-color: #000000;
+}
+// Marketing
+.bosa-marketing-contact-form .wpcf7-submit {
+    font-size: 17px;
+    font-weight: 600;
+    color: #FFFFFF;
+    background-color: #18407C;
+    padding: 15px 30px 16px 30px;
+	border-radius: 50px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+}
+.bosa-marketing-contact-form  .wpcf7-email, 
+.bosa-marketing-contact-form .wpcf7 input[type=text], 
+.bosa-marketing-contact-form  .wpcf7-textarea {
+	border-radius: 20px;
+  	-webkit-border-radius: 20px;
+  	-moz-border-radius: 20px;
+  	-ms-border-radius: 20px;
+	margin-bottom: 20px;
+	padding-left: 20px;
+	height: 45px;
+}
+// App
+#bosa-app-contact .wpcf7 input[type=text], 
+#bosa-app-contact .wpcf7 input[type=email], 
+#bosa-app-contact .wpcf7 textarea {
+	border: solid 1px #ff922261;
+	border-radius: 25px;
+	-webkit-border-radius: 25px;
+	-o-border-radius: 25px;
+	-ms-border-radius: 25px;
+	-moz-border-radius: 25px;
+}
+#bosa-app-contact .wpcf7 input[type=submit] {
+	border-radius: 25px;
+	-webkit-border-radius: 25px;
+	-o-border-radius: 25px;
+	-ms-border-radius: 25px;
+	-moz-border-radius: 25px;
+	text-transform: uppercase;
+	font-weight: 600;
+	background-color: #FF9222;
+	padding: 16px 30px;
+}
+#bosa-app-contact .wpcf7 input[type=submit]:hover,
+#bosa-app-contact .wpcf7 input[type=submit]:active,
+#bosa-app-contact .wpcf7 input[type=submit]:focus {
+	background-color: #E98015;
+}

@@ -1,0 +1,145 @@
+.site-footer {
+	background-color: $light-color;
+	color: #656565;
+	a {
+		color: #383838;
+	}
+	h1, h2, h3, h4, h5, h6 {
+		a {
+			color: inherit;
+		}
+	}
+	.social-profile {
+		margin-bottom: 20px;
+		ul {
+			padding: 0;
+			margin: 0;
+			@include bp(mdx) {
+				margin-bottom: 5px;
+			}
+			li {
+				margin: 0 8px;
+				vertical-align: middle;
+				a {
+					background-color: rgba(0, 0, 0, 0.04);
+					display: inline-block;
+					vertical-align: middle;
+					@include font-size(15);
+					@include transition(background-color 0.4s, color 0.4s);
+					@include border-radius(100%);
+					i {
+						width: 2em;
+						height: 2em;
+						@include flexbox;
+						@include justify-content(center);
+						@include align-items(center);
+					}
+					&:hover,
+					&:focus,
+					&:active {
+						color: $light-color;
+					}
+				}
+			}
+		}
+		@include bp(smx) {
+			margin-bottom: 15px;
+		}
+	}
+	.site-info {
+		display: inline-block;
+		font-size: 14px;
+		font-family: $title-font;
+    	a {
+    		font-weight: 500;
+    	}
+    	@include bp(smx) {
+    		font-size: 13px;
+    	}
+    }
+    .footer-menu {
+    	display: inline-block;
+		ul {
+			margin-bottom: 0;
+			margin-left: 8px;
+			padding-left: 0;
+			font-size: 0;
+			li {
+				border-left: 1px solid darken($light-color, 10%);
+				display: inline-block;
+				list-style: none;
+				line-height: 1.1;
+				padding: 0 10px;
+				a {
+					font-family: $title-font;
+					@include font-size(14);
+					font-weight: 500;
+				}
+			}
+			@include bp(mdx) {
+				li {
+					&:first-child {
+						border-left: none;
+						margin-left: 0;
+						padding-left: 0;
+					}
+				}
+			}
+		}
+	}
+	&.site-footer-primary {
+		.bottom-footer-image-wrap {
+			margin-top: 20px;
+		}
+	}
+}
+
+.footer-widget-wrap {
+	padding-bottom: 50px;
+}
+
+.bottom-footer {
+	background-color: rgba(0, 0, 0, 0.02);
+    padding: 30px 0;
+   	text-align: center;
+   	position: relative;
+   	@include bp(smx) {
+   		padding: 30px 0;
+   	}
+}
+
+// footer has bg image css
+.site-footer {
+	&.has-footer-bg {
+		position: relative;
+		background-position: center;
+		background-repeat: no-repeat;
+		 table {
+		    border-color: darken($light-color, 60%);
+		    tr {
+		     	border-color: darken($light-color, 60%);
+		    }
+		    th, td {
+		      	border-color: darken($light-color, 60%);
+		    }
+		 }
+		// widget css
+		.widget {
+			// cloud tags widget css
+			&.widget_calendar {
+				table {
+					thead {
+						th {
+							border-right-color: darken($light-color, 60%);
+						}
+					}
+				}
+			}
+			// select option widget css
+			select {
+				background-color: transparent;
+				color: darken($light-color, 30%); 
+			}
+		}
+	}
+}

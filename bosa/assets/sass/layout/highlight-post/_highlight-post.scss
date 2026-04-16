@@ -1,0 +1,117 @@
+.highlight-post-slider {
+	margin-bottom: 0;
+	overflow: hidden;
+	.slick-track {
+		@include flexbox;
+	}
+	.slick-list {
+		margin-right: -15px;
+		margin-left: -15px;
+	}
+	.slick-slide {
+		padding-left: 15px;
+		padding-right: 15px;
+		height: auto;
+	}
+	.post {
+		.cat-links {
+			display: inline-block;
+			&:before {
+				display: none;
+			}
+			a {
+				font-size: 13px;
+				font-weight: 400;
+				font-family: $title-font;
+				line-height: 1;
+				display: inline-block;
+				margin: 2px;
+				padding: 7px 8px;
+				@include transition(background-color 0.3s, color 0.3s );
+				@include bp(smx) {
+					padding: 6px 10px;
+				}
+			}
+		}
+		.post-content-wrap {
+			.entry-meta {
+				margin-bottom: 0;
+			}
+		}
+		.post-content-wrap {
+			padding: 25px;
+			@include bp(smx) {
+				padding: 20px;
+			}
+		}
+		.entry-content {
+			border: none;
+			margin: 0;
+			padding: 0;
+			.entry-title {
+				@include font-size(18);
+				@include bp(smx) {
+					@include font-size(16);
+				}
+			}
+		}
+		&.has-post-thumbnail:not(.has-no-thumbnail) {
+			.post-inner {
+				position: relative;
+				.cat-links {
+					position: absolute;
+					left: 10px;
+					bottom: 10px;
+					margin-bottom: 0;
+					z-index: 2;
+				}
+			}
+		}
+	}
+}
+.highlight-post-slider,
+.wrap-ralated-posts {
+	.post {
+		margin-bottom: 0;
+		.featured-image {
+			margin-right: 0; 
+		}
+		&.has-no-thumbnail {
+			padding: 25px;
+			.post-inner {
+				margin-bottom: 15px;
+			}
+			.post-content-wrap {
+				padding: 0;
+			}
+		}
+	}
+}
+
+.highlight-layout-two {
+	.post-content-wrap {
+		background-color: $light-color;
+		margin-top: -35px;
+		position: relative;
+    	z-index: 1;
+    	margin-right: 45px;
+    	padding: 25px;
+    	.entry-title {
+    		margin-bottom: 10px;
+    	}
+    	.cat-links {
+    		margin-bottom: 8px;
+    		a {
+    			padding: 0;
+    			border-bottom: 1px solid #1f1f1f;
+    			padding-bottom: 3px;
+    			@include transition(border-color 0.3s, color 0.3s);
+    		}
+    	}
+	}
+	.has-no-thumbnail {
+		.post-content-wrap {
+			margin-top: 0;
+		}
+	}
+}
