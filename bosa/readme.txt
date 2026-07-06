@@ -3,8 +3,8 @@ Contributors: bosathemes
 Tags: blog, portfolio, news, grid-Layout, one-column, two-columns, three-columns, flexible-header, left-sidebar, right-sidebar, custom-background, custom-colors, custom-logo, custom-menu, featured-images, footer-widgets, full-width-template, post-formats, rtl-language-support, theme-options, sticky-post, threaded-comments, translation-ready, block-styles, wide-blocks
 Requires at least: 5.0
 Requires PHP: 5.6
-Tested up to: 6.9
-Stable tag: 1.6.4
+Tested up to: 7.0
+Stable tag: 1.6.5
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -24,6 +24,10 @@ Bosa is multipurpose theme with beautifully crafted design. Bosa is beautiful, f
 Bosa includes support for WooCommerce, Elementor, Breadcrumb NavXT and Contact From 7.
 
 == Changelog ==
+
+= 1.6.5 =
+* WordPress 7.0 compatibility update.
+* Elementor editor button fixed.
 
 = 1.6.4 =
 * Php 8.5 compatiblity.
@@ -236,16 +240,16 @@ Bosa includes support for WooCommerce, Elementor, Breadcrumb NavXT and Contact F
 * Initial release.
 
 == Resources ==
-* Based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
+* Based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc., GPLv2 or later, https://www.gnu.org/licenses/gpl-2.0.html
 * Normalize.css http://necolas.github.io/normalize.css [MIT]
 * Bootstrap http://getbootstrap.com [MIT]
 * Kirki https://kirki.org/ [MIT]
 * Slick https://kenwheeler.github.io/slick/ [MIT]
 * Slicknav https://github.com/ComputerWolf/SlickNav [MIT]
 * Font Awesome http://fontawesome.io/
-  Icons — CC BY 4.0 License
-  Fonts — SIL OFL 1.1 License
-  Code  — MIT License
+  Icons - CC BY 4.0 License
+  Fonts - SIL OFL 1.1 License
+  Code  - MIT License
 * Theia Sticky Sidebar https://github.com/WeCodePixels/theia-sticky-sidebar [MIT]
 * Image for theme screenshot, Copyright Q000024
   License: CC0 1.0 Universal (CC0 1.0)

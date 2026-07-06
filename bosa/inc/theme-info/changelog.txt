@@ -1,3 +1,7 @@
+= 1.6.5 =
+* WordPress 7.0 compatibility update.
+* Elementor editor button fixed.
+
 = 1.6.4 =
 * Php 8.5 compatiblity.
 * Style issue fixed.

@@ -538,3 +538,20 @@ add_action( 'admin_init', function() {
 		remove_action( 'admin_init', [ \Elementor\Plugin::$instance->admin, 'maybe_redirect_to_getting_started' ] );
 	}
 }, 1 );
+
+/**
+ * Remove Edit Link From Elementor Editor/Based Pages.
+ */
+function bosa_show_edit_link( $show, $post_id ) {
+    // If Elementor is not installed/active, return original value
+    if ( ! class_exists( '\Elementor\Plugin' ) ) {
+        return $show;
+    }
+    // Check if it is an Elementor page
+    $is_elementor_page = get_post_meta( $post_id, '_elementor_edit_mode', true ) === 'builder';
+    if ( $is_elementor_page ) {
+        return false;
+    }
+    return $show;
+}
+add_filter( 'bosa_show_edit_post_link', 'bosa_show_edit_link', 10, 2 );

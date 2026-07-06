@@ -21,7 +21,9 @@
 		?>
 	</div><!-- .entry-content -->
 
-	<?php if ( get_edit_post_link() ) : ?>
+	<?php
+	$show_edit_link = apply_filters( 'bosa_show_edit_post_link', true, get_the_ID() ); 
+	if ( get_edit_post_link() && $show_edit_link ) : ?>
 		<footer class="entry-footer">
 			<?php
 			edit_post_link(
