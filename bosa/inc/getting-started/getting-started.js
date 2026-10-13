@@ -24,155 +24,46 @@ jQuery( document ).ready( function($) {
         });
      }
 
-     media_upload( '.custom_media_button' );
+     if ( typeof wp !== 'undefined' && wp.media && wp.media.editor ) {
+        media_upload( '.custom_media_button' );
+     }
 
-    $( '.bosa-install-plugins' ).click( function (e) {
+    // Installs and activates the required plugins that are still missing, one after another,
+    // then opens the starter site importer.
+    $( document ).on( 'click', '.bosa-install-plugins', function (e) {
         e.preventDefault();
+
+        if ( typeof bosa_adi_install === 'undefined' || $( this ).hasClass( 'updating-message' ) ) {
+            return;
+        }
 
         $( this ).addClass( 'updating-message' );
         $( this ).text( bosa_adi_install.btn_text );
 
-        $.ajax({
-            type: "POST",
-            url: ajaxurl,
-            data: {
-                action     : 'bosa_getting_started',
-                security : bosa_adi_install.nonce,
-                slug : 'elementor',
-                request : 1
-            },
-            success:function( response ) {
-                setTimeout( function(){
-                    $.ajax({
-                        type: "POST",
-                        url: ajaxurl,
-                        data: {
-                            action     : 'bosa_getting_started',
-                            security : bosa_adi_install.nonce,
-                            slug : 'advanced-import',
-                            request : 2
-                        },
-                        success:function( response ) {
-                            setTimeout( function(){
-                                $.ajax({
-                                    type: "POST",
-                                    url: ajaxurl,
-                                    data: {
-                                        action     : 'bosa_getting_started',
-                                        security : bosa_adi_install.nonce,
-                                        slug : 'keon-toolset',
-                                        request : 3
-                                    },
-                                    success:function( response ) {
-                                        setTimeout( function(){
-                                            $.ajax({
-                                                type: "POST",
-                                                url: ajaxurl,
-                                                data: {
-                                                    action     : 'bosa_getting_started',
-                                                    security : bosa_adi_install.nonce,
-                                                    slug : 'kirki',
-                                                    request : 4
-                                                },
-                                                success:function( response ) {
-                                                    setTimeout( function(){
-                                                        $.ajax({
-                                                            type: "POST",
-                                                            url: ajaxurl,
-                                                            data: {
-                                                                action     : 'bosa_getting_started',
-                                                                security : bosa_adi_install.nonce,
-                                                                slug : 'breadcrumb-navxt',
-                                                                request : 5
-                                                            },
-                                                            success:function( response ) {
-                                                                setTimeout( function(){
-                                                                    $.ajax({
-                                                                        type: "POST",
-                                                                        url: ajaxurl,
-                                                                        data: {
-                                                                            action     : 'bosa_getting_started',
-                                                                            security : bosa_adi_install.nonce,
-                                                                            slug : 'contact-form-7',
-                                                                            main_file : 'wp-contact-form-7',
-                                                                            request : 6
-                                                                        },
-                                                                        success:function( response ) {
-                                                                            setTimeout( function(){
-                                                                                $.ajax({
-                                                                                    type: "POST",
-                                                                                    url: ajaxurl,
-                                                                                    data: {
-                                                                                        action     : 'bosa_getting_started',
-                                                                                        security : bosa_adi_install.nonce,
-                                                                                        slug : 'elementskit-lite',
-                                                                                        request : 7
-                                                                                    },
-                                                                                    success:function( response ) {
-                                                                                        setTimeout( function(){
-                                                                                            $.ajax({
-                                                                                                type: "POST",
-                                                                                                url: ajaxurl,
-                                                                                                data: {
-                                                                                                    action     : 'bosa_getting_started',
-                                                                                                    security : bosa_adi_install.nonce,
-                                                                                                    slug : 'bosa-elementor-for-woocommerce',
-                                                                                                    request : 8
-                                                                                                },
-                                                                                                success:function( response ) {
-                                                                                                    var extra_uri, redirect_uri, dismiss_nonce;
-                                                                                                    redirect_uri         = bosa_adi_install.adminurl+'/themes.php?page=advanced-import&browse=all';
-                                                                                                    window.location.href = redirect_uri;
-                                                                                                },
-                                                                                                error: function( xhr, ajaxOptions, thrownError ){
-                                                                                                    console.log( thrownError );
-                                                                                                }
-                                                                                            });
-                                                                                        }, 500);
-                                                                                    },
-                                                                                    error: function( xhr, ajaxOptions, thrownError ){
-                                                                                        console.log( thrownError );
-                                                                                    }
-                                                                                });
-                                                                            }, 500);
-                                                                        },
-                                                                        error: function( xhr, ajaxOptions, thrownError ){
-                                                                            console.log( thrownError );
-                                                                        }
-                                                                    });
-                                                                }, 500);
-                                                            },
-                                                            error: function( xhr, ajaxOptions, thrownError ){
-                                                                console.log( thrownError );
-                                                            }
-                                                        });
-                                                    }, 500);
-                                                },
-                                                error: function( xhr, ajaxOptions, thrownError ){
-                                                    console.log( thrownError );
-                                                }
-                                            });
-                                        }, 500);
-                                    },
+        var plugins = ( bosa_adi_install.plugins || [] ).slice();
 
-                                    error: function( xhr, ajaxOptions, thrownError ){
-                                        console.log( thrownError );
-                                    }
-                                });
-                            }, 500);
-                         },
-
-                        error: function( xhr, ajaxOptions, thrownError ){
-                            console.log( thrownError );
-                        }
-                    });
-                }, 500);
-            },
-            error: function( xhr, ajaxOptions, thrownError ){
-                console.log( thrownError );
+        function install_next() {
+            if ( ! plugins.length ) {
+                window.location.href = bosa_adi_install.redirect;
+                return;
             }
-        });
+            $.ajax({
+                type: "POST",
+                url: ajaxurl,
+                data: {
+                    action   : 'bosa_getting_started',
+                    security : bosa_adi_install.nonce,
+                    slug     : plugins.shift()
+                },
+                error: function( xhr, ajaxOptions, thrownError ){
+                    console.log( thrownError );
+                },
+                complete: function() {
+                    setTimeout( install_next, 500 );
+                }
+            });
+        }
+        install_next();
     } );
 
 });
-

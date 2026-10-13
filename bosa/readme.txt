@@ -3,27 +3,34 @@ Contributors: bosathemes
 Tags: blog, portfolio, news, grid-Layout, one-column, two-columns, three-columns, flexible-header, left-sidebar, right-sidebar, custom-background, custom-colors, custom-logo, custom-menu, featured-images, footer-widgets, full-width-template, post-formats, rtl-language-support, theme-options, sticky-post, threaded-comments, translation-ready, block-styles, wide-blocks
 Requires at least: 5.0
 Requires PHP: 5.6
-Tested up to: 7.0
-Stable tag: 1.6.5
-License: GPLv3 or later
-License URI: http://www.gnu.org/licenses/gpl-3.0.html
+Tested up to: 7.1
+Stable tag: 1.7.0
+License: GPLv2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 Bosa WordPress Theme, Copyright 2026 Bosa Themes
-Bosa is distributed under the terms of the GNU General Public License v3
+Bosa is distributed under the terms of the GNU General Public License v2 or later
 
 Bosa is beautiful, fast, lightweight, responsive, extremely customizable, multipurpose theme with beautifully crafted design.
 
 == Description ==
 
-Bosa is multipurpose theme with beautifully crafted design. Bosa is beautiful, fast, lightweight, responsive, extremely customizable, multipurpose theme that you can use as a foundation to build versatile sites such as business, startups, business agencies, corporate, law firms, blog, portfolio, travel, education, fitness, university portal, church, restaurant, medical, shop, magazines, finance, accounting, consulting and preferably ideal for any type of sites. Bosa works perfectly with Gutenberg and the most popular page builder Elementor that can easily drag-and-drop your ideas from the interface. Bosa is built with SEO, speed, and usability in mind with the multiple Header & Footer layouts, predesigned starter sites includes awesome Home & Inner Pages that is incredibly customizable and powerful enough to take a stand among the crowd. Bosa is compatible with all major plugins like WooCommerce, Yoast, Contact form 7, Mailchimp for WordPress, bbPress, etc. Looking for a Multipurpose theme? Look no further!
+Bosa is a fast, lightweight multipurpose WordPress theme built for Elementor and WooCommerce. Design any type of site visually - business, portfolio, blog, or store - no code required. Built with SEO, speed, and usability in mind, Bosa supports custom headers, footers, and mega menus with Elementor, and includes a full starter site you can import in one click. Works seamlessly with Elementor and Gutenberg, and stays compatible with major plugins like WooCommerce, Yoast, Contact Form 7, and Mailchimp. Bosa also works with BEW, an Elementor addon offering widgets, templates, and AI-powered content generation.
 
 == Frequently Asked Questions ==
 
 = Does this theme support any plugins? =
 
-Bosa includes support for WooCommerce, Elementor, Breadcrumb NavXT and Contact From 7.
+Bosa includes support for WooCommerce, Elementor, Breadcrumb NavXT and Contact Form 7.
 
 == Changelog ==
+
+= 1.7.0 =
+* Getting started now installs only the required plugins.
+* Redesigned theme dashboard.
+* Security: hardened the plugin installer.
+* License changed to GPLv2 or later.
+* Tested up to WordPress 7.1.
 
 = 1.6.5 =
 * WordPress 7.0 compatibility update.
@@ -35,7 +42,7 @@ Bosa includes support for WooCommerce, Elementor, Breadcrumb NavXT and Contact F
 * Style issue fixed.
 
 = 1.6.3 =
-* Wordpress Compatibility Update.
+* WordPress Compatibility Update.
 
 = 1.6.2 =
 * Style update.
@@ -262,8 +269,8 @@ Bosa includes support for WooCommerce, Elementor, Breadcrumb NavXT and Contact F
   Source: https://pxhere.com/en/photo/1438039
 
   Logo, Copyright 2026 Bosa Themes
-  License: GNU General Public License v3 http://www.gnu.org/licenses/gpl-3.0.html
+  License: GNU General Public License v2 or later, https://www.gnu.org/licenses/gpl-2.0.html
 
   Illustrations and icons used in Screenshot, Copyright 2026 Bosa Themes
-  License: GNU General Public License v3 http://www.gnu.org/licenses/gpl-3.0.html
+  License: GNU General Public License v2 or later, https://www.gnu.org/licenses/gpl-2.0.html
   

@@ -1,3 +1,10 @@
+= 1.7.0 =
+* Getting started now installs only the required plugins.
+* Redesigned theme dashboard.
+* Security: hardened the plugin installer.
+* License changed to GPLv2 or later.
+* Tested up to WordPress 7.1.
+
 = 1.6.5 =
 * WordPress 7.0 compatibility update.
 * Elementor editor button fixed.
@@ -7,7 +14,7 @@
 * Style issue fixed.
 
 = 1.6.3 =
-* Wordpress compatibility update.
+* WordPress compatibility update.
 
 = 1.6.2 =
 * Style update.

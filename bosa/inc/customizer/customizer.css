@@ -328,3 +328,60 @@ textarea {
 .customize-control-radio input {
     margin-left: 0px;
 }
+
+/* Bosa button style: primary buttons match Bosa Starter Sites. */
+#customize-controls .control-section-upsell .button-primary,
+#customize-controls .control-section-getting_started .button-primary {
+	background: #f66c5e;
+	border-color: #f66c5e;
+	color: #fff;
+	border-radius: 4px;
+	font-weight: 600;
+	box-shadow: none;
+	text-shadow: none;
+}
+#customize-controls .control-section-upsell .button-primary:hover,
+#customize-controls .control-section-getting_started .button-primary:hover,
+#customize-controls .control-section-upsell .button-primary:focus,
+#customize-controls .control-section-getting_started .button-primary:focus,
+#customize-controls .control-section-upsell .button-primary:active,
+#customize-controls .control-section-getting_started .button-primary:active {
+	background: #ce4334;
+	border-color: #ce4334;
+	color: #fff;
+	box-shadow: none;
+}
+#customize-controls .control-section-upsell .button-primary:focus-visible,
+#customize-controls .control-section-getting_started .button-primary:focus-visible {
+	box-shadow: 0 0 0 2px #fff, 0 0 0 4px #ce4334;
+	outline: none;
+}
+
+/* Button pair: orange primary + outlined secondary, both uppercase (matches Bosa Starter Sites). */
+#customize-controls .control-section-upsell .button,
+#customize-controls .control-section-getting_started .button {
+	text-transform: uppercase;
+	letter-spacing: .02em;
+	font-size: 13px;
+}
+#customize-controls .control-section-upsell .button:not(.button-primary),
+#customize-controls .control-section-getting_started .button:not(.button-primary) {
+	background: #fff;
+	border: 1px solid #8578c6;
+	color: #1d2327;
+	border-radius: 4px;
+	font-weight: 600;
+	box-shadow: none;
+	text-shadow: none;
+}
+#customize-controls .control-section-upsell .button:not(.button-primary):hover,
+#customize-controls .control-section-getting_started .button:not(.button-primary):hover,
+#customize-controls .control-section-upsell .button:not(.button-primary):focus,
+#customize-controls .control-section-getting_started .button:not(.button-primary):focus,
+#customize-controls .control-section-upsell .button:not(.button-primary):active,
+#customize-controls .control-section-getting_started .button:not(.button-primary):active {
+	background: #f3f1fc;
+	border-color: #5b3fd1;
+	color: #1d2327;
+	box-shadow: none;
+}

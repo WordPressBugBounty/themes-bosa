@@ -984,16 +984,12 @@ function bosa_page_transparent_banner() {
 }
 
 /**
-* Check if all getting started recommended plugins are active.
+* Check if all required plugins are active.
 * @since Bosa 1.2.7
 */
 if( !function_exists( 'bosa_are_plugin_active' ) ){
 	function bosa_are_plugin_active() {
-		if( is_plugin_active( 'advanced-import/advanced-import.php' ) && is_plugin_active( 'keon-toolset/keon-toolset.php' ) && is_plugin_active( 'kirki/kirki.php' ) && is_plugin_active( 'elementor/elementor.php' ) && is_plugin_active( 'breadcrumb-navxt/breadcrumb-navxt.php' ) && is_plugin_active( 'contact-form-7/wp-contact-form-7.php' ) && is_plugin_active( 'elementskit-lite/elementskit-lite.php' ) && is_plugin_active( 'bosa-elementor-for-woocommerce/bosa-elementor-for-woocommerce.php' ) ){
-			return true;
-		}else{
-			return false;
-		}
+		return ! bosa_get_inactive_required_plugins();
 	}
 }
 

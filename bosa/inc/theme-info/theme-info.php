@@ -28,6 +28,9 @@ if ( ! class_exists( 'Bosa_Theme_Info' ) ) {
             /* enqueue script and style for about page */
             add_action( 'admin_enqueue_scripts', array( $this, 'style_and_scripts' ) );
 
+            /* keep the theme dashboard page free of admin notices */
+            add_action( 'in_admin_header', array( $this, 'hide_admin_notices' ), 1000 );
+
             /* ajax callback for dismissable required actions */
             add_action( 'wp_ajax_kt_theme_info_update_recommended_action', array( $this, 'update_recommended_action_callback' ) );
         }
@@ -41,7 +44,7 @@ if ( ! class_exists( 'Bosa_Theme_Info' ) ) {
             $this->theme_slug    = $theme->get_template();
             $this->theme_version = $theme->get( 'Version' );
             $this->page_title    = $this->theme_name . esc_html__( ' Info', 'bosa' );
-            $this->menu_title    = $this->theme_name . esc_html__( ' Setup', 'bosa' );
+            $this->menu_title    = $this->theme_name . esc_html__( ' Theme', 'bosa' );
             $this->tabs          = isset( $this->config['tabs'] ) ? $this->config['tabs'] : array();
         }
 
@@ -198,15 +201,13 @@ if ( ! class_exists( 'Bosa_Theme_Info' ) ) {
                     echo '<h1>';
                     echo esc_html( $welcome_title );
                     if ( ! empty( $this->theme_version ) ) {
-                        echo esc_html( $this->theme_version ) . ' </sup>';
+                        echo ' <span class="theme-version-badge">' . esc_html( $this->theme_version ) . '</span>';
                     }
                     echo '</h1>';
                 }
                 if ( ! empty( $welcome_content ) ) {
                     echo '<div class="about-text">' . wp_kses_post( $welcome_content ) . '</div>';
                 }
-
-                echo '<a href="' . esc_url( 'https://bosathemes.com' ) . '" target="_blank" class="wp-badge epsilon-info-logo"></a>';
 
                 /*quick links*/
                 if( !empty( $quick_links ) && is_array( $quick_links ) ){
@@ -222,13 +223,16 @@ if ( ! class_exists( 'Bosa_Theme_Info' ) ) {
                 }
                 /* Display tabs */
                 if ( ! empty( $this->tabs ) ) {
-                    $current_tab = isset( $_GET['tab'] ) ? wp_unslash( $_GET['tab'] ) : 'getting_started';
+                    $current_tab = isset( $_GET['tab'] ) ? sanitize_key( wp_unslash( $_GET['tab'] ) ) : 'getting_started';
+                    if ( ! isset( $this->tabs[ $current_tab ] ) ) {
+                        $current_tab = 'getting_started';
+                    }
 
                     echo '<h2 class="nav-tab-wrapper wp-clearfix">';
                     $count = $this->count_recommended_actions();
                     foreach ( $this->tabs as $tab_key => $tab_name ) {
 
-                        echo '<a href="' . esc_url( admin_url( 'themes.php?page=' . $this->theme_slug . '-info' ) ) . '&tab=' . $tab_key . '" class="nav-tab ' . ( $current_tab == $tab_key ? 'nav-tab-active' : '' ) . '" role="tab" data-toggle="tab">';
+                        echo '<a href="' . esc_url( admin_url( 'themes.php?page=' . $this->theme_slug . '-info' ) ) . '&tab=' . esc_attr( $tab_key ) . '" class="nav-tab ' . ( $current_tab == $tab_key ? 'nav-tab-active' : '' ) . '" role="tab" data-tab="' . esc_attr( $tab_key ) . '">';
                         echo esc_html( $tab_name );
                         if ( $tab_key == 'recommended_actions' ) {
                             if ( $count > 0 ) {
@@ -240,13 +244,17 @@ if ( ! class_exists( 'Bosa_Theme_Info' ) ) {
 
                     echo '</h2>';
 
-                    /* Display content for current tab, dynamic method according to key provided*/
-                    if ( method_exists( $this, $current_tab ) ) {
-
-                        echo "<div class='changelog point-releases'>";
-                        $this->$current_tab();
-                        echo "</div>";
+                    /* All tab panels are printed once; theme-info.js switches them without a page reload. */
+                    foreach ( $this->tabs as $tab_key => $tab_name ) {
+                        if ( ! method_exists( $this, $tab_key ) ) {
+                            continue;
+                        }
+                        echo '<div class="changelog point-releases theme-info-panel" data-tab="' . esc_attr( $tab_key ) . '"' . ( $current_tab === $tab_key ? '' : ' hidden' ) . '>';
+                        $this->$tab_key();
+                        echo '</div>';
                     }
+
+                    $this->pro_banner();
                 }
                 echo '</div><!--/.wrap.about-wrap-->';
             }
@@ -284,11 +292,17 @@ if ( ! class_exists( 'Bosa_Theme_Info' ) ) {
                         $is_gs = $instance[ 'is_gs' ];
                         
                         echo '<div class="col"><div class="col-items">';
-                        
+                        if ( ! empty( $gs_step['tag'] ) ) {
+                            echo '<span class="theme-info-tag">' . esc_html( $gs_step['tag'] ) . '</span>';
+                        }
+
                         if( $is_gs ) {
-                            if ( is_plugin_active('advanced-import/advanced-import.php') && is_plugin_active('keon-toolset/keon-toolset.php') && is_plugin_active('kirki/kirki.php') && is_plugin_active('elementor/elementor.php') && is_plugin_active('breadcrumb-navxt/breadcrumb-navxt.php') && is_plugin_active( 'contact-form-7/wp-contact-form-7.php' ) && is_plugin_active( 'elementskit-lite/elementskit-lite.php' ) && is_plugin_active( 'bosa-elementor-for-woocommerce/bosa-elementor-for-woocommerce.php' ) ) {
-                                echo ('<h3>'.esc_html__('Plugins added successfully. You have completed Step 1.', 'bosa').'</h3>');
-                            echo '</div></div>';
+                            $inactive_plugins = bosa_get_inactive_required_plugins();
+                            if ( empty( $inactive_plugins ) ) {
+                                echo '<h3>' . esc_html__( 'You are all set! Import a starter site', 'bosa' ) . '</h3>';
+                                echo '<p>' . esc_html__( 'All required plugins are active. Pick a starter site and import it in one click, or start building your own design.', 'bosa' ) . '</p>';
+                                echo '<p><a class="button button-primary" href="' . esc_url( admin_url( 'themes.php?page=advanced-import' ) ) . '">' . esc_html__( 'Import a Starter Site', 'bosa' ) . '</a></p>';
+                                echo '</div></div>';
                             }else {
                                 if ( ! empty( $title ) ) {
                                     echo '<h3>';
@@ -297,15 +311,16 @@ if ( ! class_exists( 'Bosa_Theme_Info' ) ) {
                                 }
 
                                 if ( ! empty( $desc ) ) {
-                                    echo '<p><i>' . $desc . '</i></p>';
+                                    echo '<p>' . $desc . '</p>';
                                 }
+                                echo '<p class="plugin-notice">' . sprintf( esc_html__( 'This will install and activate %s.', 'bosa' ), esc_html( wp_sprintf( '%l', wp_list_pluck( $inactive_plugins, 'name' ) ) ) ) . '</p>';
 
                                 if ( ! empty( $button_label ) ) {
 
                                     echo '<p>';
                                     $button_class = '';
                                     if ( $is_button ) {
-                                        $button_class = 'button button-primary button-hero bosa-install-plugins';
+                                        $button_class = 'button button-primary bosa-install-plugins';
                                     }
 
                                     $button_new_tab = '_self';
@@ -327,7 +342,7 @@ if ( ! class_exists( 'Bosa_Theme_Info' ) ) {
                             }
 
                             if ( ! empty( $desc ) ) {
-                                echo '<p><i>' . $desc . '</i></p>';
+                                echo '<p>' . $desc . '</p>';
                             }
 
                             if ( ! empty( $button_link ) && ! empty( $button_label ) ) {
@@ -734,6 +749,7 @@ if ( ! class_exists( 'Bosa_Theme_Info' ) ) {
                     $defaults = array(
                         'title' => '',
                         'icon' => '',
+                        'tag' => '',
                         'desc' => '',
                         'button_label' => '',
                         'button_link' => '',
@@ -755,6 +771,10 @@ if ( ! class_exists( 'Bosa_Theme_Info' ) ) {
                         
                         echo '<div class="col"><div class="col-items">';
 
+                        if ( ! empty( $instance['tag'] ) ) {
+                            echo '<span class="theme-info-tag">' . esc_html( $instance['tag'] ) . '</span>';
+                        }
+
                         if ( ! empty( $title ) ) {
                             echo '<h3>';
                             if ( ! empty( $icon ) ) {
@@ -765,7 +785,7 @@ if ( ! class_exists( 'Bosa_Theme_Info' ) ) {
                         }
 
                         if ( ! empty( $desc ) ) {
-                            echo '<p><i>' . $desc . '</i></p>';
+                            echo '<p>' . $desc . '</p>';
                         }
 
                         if ( ! empty( $button_link ) && ! empty( $button_label ) ) {
@@ -773,7 +793,7 @@ if ( ! class_exists( 'Bosa_Theme_Info' ) ) {
                             echo '<p>';
                             $button_class = '';
                             if ( $is_button ) {
-                                $button_class = 'button button-primary';
+                                $button_class = 'button';
                             }
 
                             $button_new_tab = '_self';
@@ -794,104 +814,149 @@ if ( ! class_exists( 'Bosa_Theme_Info' ) ) {
 
         /**
          * Changelog tab
+         *
+         * Reads the "== Changelog ==" section of the theme's readme.txt, so the
+         * dashboard always matches what WordPress.org shows. A "= x.y.z =" heading
+         * starts a release; any other "= ... =" heading (Added, Fixed...) starts a
+         * group inside it.
+         *
+         * @return array list of array( 'version' => string, 'groups' => array( array( 'label', 'items' ) ) )
          */
         private function parse_changelog() {
-            WP_Filesystem();
-            global $wp_filesystem;
-            if ( is_child_theme() ){
-                $changelog = $wp_filesystem->get_contents( get_stylesheet_directory() . '/inc/theme-info/changelog.txt' );
-            }else{
-                $changelog = $wp_filesystem->get_contents( get_template_directory() . '/inc/theme-info/changelog.txt' );
+            $readme = trailingslashit( is_child_theme() ? get_stylesheet_directory() : get_template_directory() ) . 'readme.txt';
+            if ( ! is_readable( $readme ) ) {
+                return array();
             }
-            if ( is_wp_error( $changelog ) ) {
-                $changelog = '';
+
+            $releases   = array();
+            $in_section = false;
+            $release    = -1;
+            $group      = -1;
+            $lines      = preg_split( '/\r\n|\r|\n/', (string) file_get_contents( $readme ) );
+            foreach ( $lines as $line ) {
+                $line = trim( $line );
+                if ( preg_match( '/^==\s*(.+?)\s*==$/', $line, $m ) ) {
+                    // Section heading: only the Changelog section is read.
+                    $in_section = ( 'changelog' === strtolower( $m[1] ) );
+                    continue;
+                }
+                if ( ! $in_section || '' === $line ) {
+                    continue;
+                }
+                if ( preg_match( '/^=\s*(.+?)\s*=$/', $line, $m ) ) {
+                    if ( preg_match( '/^v?(\d+(?:\.\d+)+)/i', $m[1], $v ) ) {
+                        $releases[] = array( 'version' => $v[1], 'groups' => array() );
+                        $release    = count( $releases ) - 1;
+                        $group      = -1;
+                    } elseif ( $release >= 0 ) {
+                        $releases[ $release ]['groups'][] = array( 'label' => $m[1], 'items' => array() );
+                        $group = count( $releases[ $release ]['groups'] ) - 1;
+                    }
+                    continue;
+                }
+                if ( $release < 0 ) {
+                    continue;
+                }
+                if ( $group < 0 ) {
+                    // Bullets before any group label: an unlabeled group.
+                    $releases[ $release ]['groups'][] = array( 'label' => '', 'items' => array() );
+                    $group = count( $releases[ $release ]['groups'] ) - 1;
+                }
+                $releases[ $release ]['groups'][ $group ]['items'][] = ltrim( $line, "*- \t" );
             }
-            return $changelog;
+            return $releases;
         }
 
         public function changelog() {
-            $changelog = $this->parse_changelog();
-            if ( ! empty( $changelog ) ) {
-                echo '<div class="featured-section changelog">';
-                echo "<pre class='changelog'>";
-                echo esc_html($changelog);
-                echo "</pre>";
-                echo '</div><!-- .featured-section.changelog -->';
+            $releases = $this->parse_changelog();
+            if ( empty( $releases ) ) {
+                return;
             }
+            echo '<div class="feature-section theme-changelog">';
+            foreach ( $releases as $index => $release ) {
+                // Newest release starts open, older ones collapsed (native <details>, no JS).
+                echo '<details class="theme-changelog-release"' . ( 0 === $index ? ' open' : '' ) . '>';
+                echo '<summary><span class="theme-changelog-version">v' . esc_html( $release['version'] ) . '</span>';
+                if ( version_compare( $release['version'], $this->theme_version, '==' ) ) {
+                    echo ' <span class="theme-changelog-tag">' . esc_html__( 'Current', 'bosa' ) . '</span>';
+                }
+                echo '</summary><div class="theme-changelog-body">';
+                foreach ( $release['groups'] as $group ) {
+                    if ( '' !== $group['label'] ) {
+                        echo '<span class="theme-changelog-group theme-changelog-group-' . esc_attr( sanitize_html_class( strtolower( $group['label'] ) ) ) . '">' . esc_html( $group['label'] ) . '</span>';
+                    }
+                    if ( $group['items'] ) {
+                        echo '<ul>';
+                        foreach ( $group['items'] as $item ) {
+                            echo '<li>' . esc_html( $item ) . '</li>';
+                        }
+                        echo '</ul>';
+                    }
+                }
+                echo '</div></details>';
+            }
+            echo '</div><!-- .theme-changelog -->';
+        }
+
+        /**
+         * Bosa Pro upgrade banner shown under the tab content.
+         */
+        public function pro_banner() {
+            if ( empty( $this->config['pro_banner'] ) ) {
+                return;
+            }
+            $banner = $this->config['pro_banner'];
+            echo '<div class="bosa-pro-banner">';
+            echo '<a href="' . esc_url( $banner['link'] ) . '" target="_blank" rel="noopener noreferrer">';
+            echo '<img src="' . esc_url( $banner['image'] ) . '" alt="' . esc_attr( $banner['alt'] ) . '" width="1544" height="90">';
+            echo '</a>';
+            echo '</div>';
         }
 
         /**
         * Free vs Pro tab
         */
         public function free_pro(){
-            if( ! empty( $this->config['free_pro'] ) ){
-                $free_pro= $this->config['free_pro'];
-                    if( ! empty($free_pro) ){
+            $rows = isset( $this->config['free_pro_table'] ) ? $this->config['free_pro_table'] : array();
+            $cta  = isset( $this->config['free_pro_cta'] ) ? $this->config['free_pro_cta'] : array();
+            if ( empty( $rows ) ) {
+                return;
+            }
 
-                    /*defaults values for Free vs Pro array */
-                        $defaults = array(
-                            'title'     => '',
-                            'desc'       => '',
-                            'recommended_actions'=> '',
-                            'link_title'   => '',
-                            'link_url'   => '',
-                            'is_button' => false,
-                            'is_new_tab' => false
-                        );
-
-                         echo '<div class="feature-section col-wrap">';
-
-                        foreach ( $free_pro as $free_pro_item ) {
-
-                            /*allowed 6 value in array */
-                            $instance = wp_parse_args( (array) $free_pro_item, $defaults );
-                            /*default values*/
-                            $title = esc_html( $instance[ 'title' ] );
-                            $desc = wp_kses_post( $instance[ 'desc' ] );
-                            $link_title = esc_html( $instance[ 'link_title' ] );
-                            $link_url = esc_url( $instance[ 'link_url' ] );
-                            $is_button = $instance[ 'is_button' ];
-                            $is_new_tab = $instance[ 'is_new_tab' ];
-
-
-                            echo '<div class="col"><div class="col-items">';
-                            if ( ! empty( $title ) ) {
-                                echo '<h3>' . $title . '</h3>';
-                            }
-                            if ( ! empty( $desc ) ) {
-                                echo '<p>' . $desc . '</p>';
-                            }
-                            if ( ! empty( $link_title ) && ! empty( $link_url ) ) {
-
-                                echo '<p>';
-                                $button_class = '';
-                                if ( $is_button ) {
-                                    $button_class = 'button button-primary';
-                                }
-
-                                $count = $this->count_recommended_actions();
-
-                                if ( $free_pro_item['recommended_actions'] && isset( $count ) ) {
-                                    if ( $count == 0 ) {
-                                        echo '<span class="dashicons dashicons-yes"></span>';
-                                    } else {
-                                        echo '<span class="dashicons dashicons-no-alt"></span>';
-                                    }
-                                }
-
-                                $button_new_tab = '_self';
-                                if ( $is_new_tab ) {
-                                    $button_new_tab = '_blank';
-                                }
-
-                                echo '<a target="' . $button_new_tab . '" href="' . $free_pro_item['link_url'] . '"class="' . $button_class . '">' . $free_pro_item['link_title'] . '</a>';
-                                echo '</p>';
-                            }
-                            echo '</div></div><!-- .col -->';
-                        }
-                        echo '</div><!-- .feature-section three-col -->';
+            echo '<div id="free_pro" class="feature-section">';
+            if ( ! empty( $cta['intro'] ) ) {
+                echo '<p class="free-pro-intro">' . wp_kses_post( $cta['intro'] ) . '</p>';
+            }
+            if ( ! empty( $cta['button_label'] ) && ! empty( $cta['button_link'] ) ) {
+                echo '<p class="free-pro-cta"><a class="button button-primary" target="_blank" href="' . esc_url( $cta['button_link'] ) . '">' . esc_html( $cta['button_label'] ) . '</a>';
+                if ( ! empty( $cta['link_label'] ) && ! empty( $cta['link_url'] ) ) {
+                    echo ' <a class="button button-secondary" target="_blank" href="' . esc_url( $cta['link_url'] ) . '">' . esc_html( $cta['link_label'] ) . '</a>';
+                }
+                echo '</p>';
+            }
+            echo '<div class="bosa-table"><table>';
+            echo '<thead><tr><th></th><th>' . esc_html__( 'Free Theme', 'bosa' ) . '</th><th class="pro">' . esc_html__( 'Pro Theme', 'bosa' ) . '</th></tr></thead><tbody>';
+            foreach ( $rows as $index => $row ) {
+                // The first row is the headline feature, highlighted like on bosathemes.com.
+                echo '<tr' . ( 0 === $index ? ' class="highlited"' : '' ) . '><th>' . esc_html( $row[0] ) . '</th>';
+                foreach ( array( $row[1], $row[2] ) as $i => $value ) {
+                    if ( true === $value ) {
+                        $cell = '<span class="dashicons dashicons-yes" aria-label="' . esc_attr__( 'Yes', 'bosa' ) . '"></span>';
+                    } elseif ( false === $value ) {
+                        $cell = '<span class="dashicons dashicons-no-alt" aria-label="' . esc_attr__( 'No', 'bosa' ) . '"></span>';
+                    } else {
+                        $cell = esc_html( $value );
                     }
-             }
+                    $is_feature = ( 1 === $i && ! empty( $row[3] ) );
+                    if ( $is_feature ) {
+                        $cell .= '<span>' . esc_html( $row[3] ) . '</span>';
+                    }
+                    echo '<td' . ( $is_feature ? ' class="feature"' : '' ) . '>' . $cell . '</td>';
+                }
+                echo '</tr>';
+            }
+            echo '</tbody></table></div>';
+            echo '</div><!-- #free_pro -->';
         }
 
          /**
@@ -940,7 +1005,7 @@ if ( ! class_exists( 'Bosa_Theme_Info' ) ) {
                                 echo '<p>';
                                 $button_class = '';
                                 if ( $is_button ) {
-                                    $button_class = 'button button-primary';
+                                    $button_class = 'button';
                                 }
 
                                 $count = $this->count_recommended_actions();
@@ -1000,6 +1065,9 @@ if ( ! class_exists( 'Bosa_Theme_Info' ) ) {
 
 
                             echo '<div class="col"><div class="col-items">';
+                            if ( ! empty( $rating_item['tag'] ) ) {
+                                echo '<span class="theme-info-tag">' . esc_html( $rating_item['tag'] ) . '</span>';
+                            }
                             if ( ! empty( $title ) ) {
                                 echo '<h3>' . $title . '</h3>';
                             }
@@ -1011,7 +1079,7 @@ if ( ! class_exists( 'Bosa_Theme_Info' ) ) {
                                 echo '<p>';
                                 $button_class = '';
                                 if ( $is_button ) {
-                                    $button_class = 'button button-primary';
+                                    $button_class = 'button';
                                 }
 
                                 $button_new_tab = '_self';
@@ -1030,16 +1098,29 @@ if ( ! class_exists( 'Bosa_Theme_Info' ) ) {
         }
 
         /**
+         * Hide admin notices (from the theme, plugins or core) on the theme dashboard page only.
+         */
+        public function hide_admin_notices() {
+            $screen = function_exists( 'get_current_screen' ) ? get_current_screen() : null;
+            if ( ! $screen || 'appearance_page_' . $this->theme_slug . '-info' !== $screen->id ) {
+                return;
+            }
+            remove_all_actions( 'admin_notices' );
+            remove_all_actions( 'all_admin_notices' );
+            remove_all_actions( 'network_admin_notices' );
+            remove_all_actions( 'user_admin_notices' );
+        }
+        /**
          * Load css and scripts for the about page
          */
         public function style_and_scripts( $hook_suffix ) {
 
             // this is needed on all admin pages, not just the about page, for the badge action count in the WordPress main sidebar
-            wp_enqueue_style( 'kt-theme-info-css', get_template_directory_uri() . '/inc/theme-info/assets/css/theme-info.css' );
+            wp_enqueue_style( 'kt-theme-info-css', get_template_directory_uri() . '/inc/theme-info/assets/css/theme-info.css', array(), wp_get_theme( get_template() )->get( 'Version' ) );
 
             if ( 'appearance_page_' . $this->theme_slug . '-info' == $hook_suffix ) {
 
-                wp_enqueue_script( 'kt-theme-info-js', get_template_directory_uri() . '/inc/theme-info/assets/js/theme-info.js', array( 'jquery' ) );
+                wp_enqueue_script( 'kt-theme-info-js', get_template_directory_uri() . '/inc/theme-info/assets/js/theme-info.js', array( 'jquery' ), wp_get_theme( get_template() )->get( 'Version' ), true );
 
                 wp_enqueue_style( 'plugin-install' );
                 wp_enqueue_script( 'plugin-install' );
@@ -1060,18 +1141,14 @@ if ( ! class_exists( 'Bosa_Theme_Info' ) ) {
 
 $theme_name_config = esc_attr ( wp_get_theme()->get('Name') );
 $theme_name_config_url = strtolower( str_replace( ' ', '-', $theme_name_config ) );
-$demo_name_config_url = 'agency';
-if( is_child_theme() ){
-    $demo_name_config_url = str_replace( 'bosa-', '', $theme_name_config_url );
-}
 
 $config = array(
 
     // Main welcome title
-    'info_title' => sprintf( esc_html__( 'Welcome to %s - ', 'bosa' ), $theme_name_config ),
+    'info_title' => sprintf( esc_html__( 'Welcome to %s', 'bosa' ), $theme_name_config ),
 
     // Main welcome content
-    'info_content' => sprintf( esc_html__( '%s is now installed and ready to use. We hope the following information will help and you enjoy using it!', 'bosa' ), '<b>'.$theme_name_config.'</b>' ),
+    'info_content' => sprintf( esc_html__( 'Thank you for choosing %s! Install the required plugins, import a starter site and launch your website in minutes, no coding needed.', 'bosa' ), '<b>'.$theme_name_config.'</b>' ),
 
     /**
      * Quick links
@@ -1079,65 +1156,33 @@ $config = array(
     'quick_links' => array(
         'theme_url'  => array(
             'text' => __( 'Theme Details', 'bosa' ),
-            'url' => 'https://bosathemes.com/' .$theme_name_config_url 
-        ),
-        'demo_url'  => array(
-            'text' => __( 'View Demo', 'bosa' ),
-            'url' => 'https://demo.bosathemes.com/bosa/' .$demo_name_config_url
+            'url' => 'https://bosathemes.com/' .$theme_name_config_url
         ),
         'pro_url'  => array(
-            'text' => __( 'View Pro Version', 'bosa' ),
+            'text' => __( 'Upgrade Now', 'bosa' ),
             'url' => 'https://bosathemes.com/bosa-pro'
         ),
-        'rate_url'  => array(
-            'text' => __( 'Rate This Theme', 'bosa' ),
-            'url' => 'https://wordpress.org/support/theme/' .$theme_name_config_url. '/reviews'
-        ),  
     ),
 
     'tabs' => array(
         'getting_started'      => esc_html__( 'Getting Started', 'bosa' ),
-        'recommended_plugins'  => esc_html__( 'Recommended Plugins', 'bosa' ),
         'support'              => esc_html__( 'Support', 'bosa' ),
-        'changelog'            => esc_html__( 'Changelog', 'bosa' ),
         'free_pro'             => esc_html__( 'Free VS Pro', 'bosa' ),
-        'demos'                => esc_html__( 'Demos', 'bosa' ),
+        'changelog'            => esc_html__( 'Changelog', 'bosa' ),
         'rating'               => esc_html__( 'Rate Theme', 'bosa' )
     ),
 
     /*Getting started tab*/
     'gs_steps' => array(
         'first' => array(
-           'title' => esc_html__( 'Step 1 - To fully take advantage of the best our theme can offer, get started.', 'bosa' ),
-            'button_label' => sprintf(esc_html__( 'Get started with %s', 'bosa' ), $theme_name_config ),
+            'tag' => esc_html__( 'Setup', 'bosa' ),
+            'title' => esc_html__( 'Install required plugins & import a starter site', 'bosa' ),
+            'desc' => esc_html__( 'Get the plugins Bosa needs, then pick a starter site and import it in one click. Prefer your own design? You can start building from scratch right after.', 'bosa' ),
+            'button_label' => esc_html__( 'Get started', 'bosa' ),
             'is_button' => true,
             'recommended_actions' => false,
             'is_new_tab' => true,
             'is_gs' => true,
-        ),
-        'second' => array(
-            'title' => esc_html__( 'Step 2 - Checkout starter sites (Demos)', 'bosa' ),
-            'desc' => esc_html__( 'All starter demos sites comes attached to Bosa just ready to pluck one from. Discover them, be enamoured and finally decide on the one you resonate with. If one doesnt catch your fancy dont be afraid to have a go at building a site with your own design.', 'bosa' ),
-            'button_label' => esc_html__( 'View Demo', 'bosa' ),
-            'button_link' => esc_url( 'https://demo.bosathemes.com/bosa/' .$demo_name_config_url ),
-            'is_button' => true,
-            'is_new_tab' => true
-        ),
-        'third' => array (
-            'title' => esc_html__( 'Step 3 - Import demo of your choice', 'bosa' ),
-            'desc' => esc_html__( 'Once you have a found a site you like, you can move ahead and import it. It is to be noted that some necessary plugins will be installed to function the site as you see in the demo site. A fresh Wordpress site is recommended to mirror the demo site on your setup. Importing the demo on an already running site will create discrepancies with the site shown on the demo.', 'bosa' ),
-            'button_label' => esc_html__( 'Import Demo', 'bosa' ),
-            'button_link' => esc_url( admin_url( 'themes.php?page=advanced-import' ), 'bosa' ),
-            'is_button' => true,
-            'is_new_tab' => true
-        ),
-        'fourth' => array(
-            'title' => esc_html__( 'Step 4 - Start editing content and making your site!', 'bosa' ),
-            'desc' => esc_html__( 'Once finishing the import you play with the demo to your hearts content.', 'bosa' ),
-        ),
-        'fifth' => array (
-            'title' => esc_html__( "Step 5 - That's it!", 'bosa' ),
-            'desc' => esc_html__( 'Go live with the website and enjoy it!', 'bosa' ),
         ),
     ),
 
@@ -1147,113 +1192,69 @@ $config = array(
     ),
 
     // Generic Plugins array.
-    'recommended_plugins' => array(
-        'Bosa Elementor Addons for WooCommerce' => array(
-            'slug' => 'bosa-elementor-for-woocommerce'
-        ),
-        'Kirki' => array(
-            'slug' => 'kirki'
-        ),
-        'Elementor' => array(
-            'slug' => 'elementor'
-        ),
-        'Keon Toolset' => array(
-            'slug' => 'keon-toolset'
-        ),
-        'ElementsKit Lite' => array(
-            'slug' => 'elementskit-lite'
-        ),
-        'Advanced Import' => array(
-            'slug' => 'advanced-import'
-        ),
-        'Breadcrumb NavXT' => array(
-            'slug' => 'breadcrumb-navxt'
-        ),
-        'Smash Balloon Instagram Feed' => array(
-            'slug' => 'instagram-feed'
-        ),
-    ),
+    'recommended_plugins' => array(),
 
     // Support content tab.
     'support_content' => array(
         'first' => array(
-            'title' => esc_html__( 'Need more features?', 'bosa' ),
-            'desc' => esc_html__( 'Upgrade to PRO version for more exciting features and Priority Support.', 'bosa' ),
-            'button_label' => esc_html__( 'Upgrade to PRO', 'bosa' ),
-            'button_link' => esc_url( 'https://bosathemes.com/bosa-pro' ),
-            'is_button' => true,
-            'is_new_tab' => true
-        ),
-        'second' => array (
-            'title' => esc_html__( 'Go to Customizer', 'bosa' ),
-            'desc' => esc_html__( 'All Settings, Header & Footer Options, Theme Options, Widgets and Menus are available via Customize screen.', 'bosa' ),
-            'button_label' => esc_html__( 'Go to Customizer', 'bosa' ),
-            'button_link' => esc_url( admin_url( 'customize.php' ) ),
-            'is_button' => true,
-            'is_new_tab' => true
-        ),
-        'third' => array(
+            'tag' => esc_html__( 'Guides', 'bosa' ),
             'title' => esc_html__( 'Documentation', 'bosa' ),
-            'desc' => esc_html__( 'Please check our full documentation for detailed information on how to Setup and Use Bosa.', 'bosa' ),
+            'desc' => esc_html__( 'Please check our full documentation for detailed information on how to Setup and Use the theme.', 'bosa' ),
             'button_label' => esc_html__( 'Read full documentation', 'bosa' ),
             'button_link' => esc_url( 'https://bosathemes.com/docs/bosa' ),
             'is_button' => true,
             'is_new_tab' => true
         ),
-        'fourth' => array (
+        'second' => array (
+            'tag' => esc_html__( 'Community', 'bosa' ),
             'title' => esc_html__( 'Support Forum', 'bosa' ),
-            'desc' => esc_html__( 'Got theme support question or found bug? Simply create a support ticket with your queries and we will get back to you.', 'bosa' ),
+            'desc' => esc_html__( 'Free users can get community support on the theme\'s WordPress.org forum. Ask a question or report a bug there.', 'bosa' ),
             'button_label' => esc_html__( 'Support Forum', 'bosa' ),
-            'button_link' => esc_url( 'https://bosathemes.com/user-login-register' ),
+            'button_link' => esc_url( 'https://wordpress.org/support/theme/' . get_stylesheet() . '/' ),
             'is_button' => true,
             'is_new_tab' => true
         ),
-        'fifth' => array(
-            'title' => esc_html__( 'Got sales related question?', 'bosa' ),
-            'desc' => esc_html__( "Have any query before purchase, you are more than welcome to ask.", 'bosa' ),
-            'button_label' => esc_html__( 'Pre-sale Question?', 'bosa' ),
-            'button_link' => esc_url( 'https://bosathemes.com/pre-sale' ),
-            'is_button' => true,
-            'is_new_tab' => true
-        ),
-        'sixth' => array(
-            'title' => esc_html__( 'Customization Request', 'bosa' ),
-            'desc' => esc_html__( 'Needed any customization for the theme, you can request from here.', 'bosa' ),
-            'button_label' => esc_html__( 'Customization Request', 'bosa' ),
-            'button_link' => esc_url( 'https://bosathemes.com/hire-us' ),
+        'third' => array(
+            'tag' => esc_html__( 'Contact', 'bosa' ),
+            'title' => esc_html__( 'Contact Us', 'bosa' ),
+            'desc' => esc_html__( 'General inquiries? We’re here to help. Send us your question and our team will get back to you soon.', 'bosa' ),
+            'button_label' => esc_html__( 'Ask Us Now', 'bosa' ),
+            'button_link' => esc_url( 'https://bosathemes.com/contact/' ),
             'is_button' => true,
             'is_new_tab' => true
         )
     ),
-    
-    // Free vs Pro
-    'free_pro' => array (
-        'first'=> array(
-            'title' => esc_html__( 'Free VS Pro Features', 'bosa' ),
-            'desc' => sprintf( esc_html__( '%s is a multipurpose free WordPress theme. However, Bosa Pro comes with more cool and awesome features that give you a flexible and wide range of options to build a full-fledged website.', 'bosa' ), $theme_name_config ),
-            'link_title' => esc_html__( 'Check All Features', 'bosa' ),
-            'link_url' => esc_url( 'https://bosathemes.com/features' ),
-            'is_button' => true,
-            'recommended_actions' => false,
-            'is_new_tab' => true
-        ),
+
+    // Upgrade banner under the tabs (image banner, like BEW's dashboard).
+    'pro_banner' => array(
+        'image' => get_template_directory_uri() . '/inc/theme-info/assets/images/bosa-pro-banner.jpg',
+        'alt' => esc_html__( 'Bosa Pro unlocks 200+ starter sites, full customization control, and priority support — all included.', 'bosa' ),
+        'link' => 'https://bosathemes.com/bosa-pro/#pricing',
     ),
 
-    //demos
-    'demos' => array (
-        'first'=> array(
-            'title' => esc_html__( 'Pre-built Demos', 'bosa' ),
-            'desc' => esc_html__ ( 'To get started with ready-made starter site templates.', 'bosa' ),
-            'link_title' => esc_html__( 'View All Demos', 'bosa' ),
-            'link_url' => esc_url( 'https://demo.bosathemes.com/bosa/' .$demo_name_config_url ),
-            'is_button' => true,
-            'recommended_actions' => false,
-            'is_new_tab' => true
-        ),
+    // Free vs Pro, same as bosathemes.com/bosa-pro: feature, Free, Pro (true / false / text), optional Pro note.
+    'free_pro_table' => array(
+        array( esc_html__( 'Pre-Built Starter Websites', 'bosa' ), '1', '200+', esc_html__( '( Most themes offer far fewer )', 'bosa' ) ),
+        array( esc_html__( 'Priority Support Access', 'bosa' ), esc_html__( 'Community Forum', 'bosa' ), true ),
+        array( esc_html__( 'Featured Posts Section (Advanced)', 'bosa' ), false, true ),
+        array( esc_html__( 'Featured Pages Section', 'bosa' ), false, true ),
+        array( esc_html__( 'Blog Advertisement Banner', 'bosa' ), false, true ),
+        array( esc_html__( 'Header Notification Bar', 'bosa' ), false, true ),
+        array( esc_html__( 'Footer Instagram Feed', 'bosa' ), false, true ),
+        array( esc_html__( 'Coming Soon / Maintenance Mode', 'bosa' ), false, true ),
     ),
+    'free_pro_cta' => array(
+        'intro' => esc_html__( 'Bosa Pro unlocks 200+ starter sites, full customization control, and priority support — all included.', 'bosa' ),
+        'button_label' => esc_html__( 'Buy Now', 'bosa' ),
+        'button_link' => 'https://bosathemes.com/bosa-pro/#pricing',
+        'link_label' => esc_html__( 'View Full Comparison', 'bosa' ),
+        'link_url' => 'https://bosathemes.com/free-vs-pro',
+    ),
+
     // rating
     'rating' => array(
         'first'=> array(
+            'tag' => esc_html__( 'Feedback', 'bosa' ),
             'title' => esc_html__( 'Show us how much you like our theme.', 'bosa' ),
             'desc' => esc_html__( 'If you like our work, please give us a moment of your time to rate our theme 5 stars on ', 'bosa' ) .'<a target="_blank" href="https://wordpress.org/support/theme/' .$theme_name_config_url. '/reviews">' . 'wordpress.org' . '</a>' . esc_html__('. It will give us more energy to work on this theme.', 'bosa' ),
             'link_title' => esc_html__( 'Rate Theme', 'bosa' ),

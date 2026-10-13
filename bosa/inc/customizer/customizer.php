@@ -122,8 +122,8 @@ function bosa_customize_getting_started_register( $wp_customize ) {
 				$wp_customize,
 				'theme_getting_started',
 				array(
-					'title'    => esc_html__( 'Getting started will install and activate the recommended plugins.', 'bosa' ),
-					'gs_text' => sprintf( esc_html__( 'Get Started with %s','bosa' ), $theme_name ),
+					'title'    => esc_html__( 'Getting started will install and activate the required plugins.', 'bosa' ),
+					'gs_text' => esc_html__( 'Get started', 'bosa' ),
 					'gs_url'  => '#',
 					'priority'  => 2,
 				)
@@ -138,7 +138,7 @@ add_action( 'customize_register', 'bosa_customize_getting_started_register' );
  */
 add_action( 'customize_controls_enqueue_scripts', 'bosa_custom_customize_enqueue' );
 function bosa_custom_customize_enqueue() {
-	wp_enqueue_style( 'bosa-customize-controls', get_template_directory_uri() . '/inc/customizer/customizer.css' );
+	wp_enqueue_style( 'bosa-customize-controls', get_template_directory_uri() . '/inc/customizer/customizer.css', array(), wp_get_theme( get_template() )->get( 'Version' ) );
 }
 
 /**
@@ -168,7 +168,8 @@ function bosa_customize_preview_js() {
 add_action( 'customize_preview_init', 'bosa_customize_preview_js' );
 
 function bosa_customize_getting_js() {
-	wp_enqueue_script( 'bosa-customizer-getting-started', get_template_directory_uri() . '/inc/getting-started/getting-started.js', array( 'customize-controls', 'jquery' ), true );
+	wp_enqueue_script( 'bosa-customizer-getting-started', get_template_directory_uri() . '/inc/getting-started/getting-started.js', array( 'customize-controls', 'jquery' ), wp_get_theme( get_template() )->get( 'Version' ), true );
+	wp_localize_script( 'bosa-customizer-getting-started', 'bosa_adi_install', bosa_getting_started_script_data() );
 }
 add_action( 'customize_controls_enqueue_scripts', 'bosa_customize_getting_js' );
 

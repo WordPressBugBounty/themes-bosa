@@ -47,3 +47,48 @@ jQuery(document).ready(function ($) {
     });
 
 });
+
+/* Theme dashboard tabs: switch panels in place and keep ?tab= in the URL, without reloading. */
+( function () {
+    var nav = document.querySelector( '.info-wrap .nav-tab-wrapper' );
+    var panels = document.querySelectorAll( '.info-wrap .theme-info-panel' );
+    if ( ! nav || ! panels.length || ! window.history || ! window.URL ) {
+        return;
+    }
+
+    function show( tab, push ) {
+        var found = false;
+        panels.forEach( function ( p ) {
+            var active = p.getAttribute( 'data-tab' ) === tab;
+            p.hidden = ! active;
+            found = found || active;
+        } );
+        if ( ! found ) {
+            return false;
+        }
+        nav.querySelectorAll( '.nav-tab' ).forEach( function ( a ) {
+            a.classList.toggle( 'nav-tab-active', a.getAttribute( 'data-tab' ) === tab );
+        } );
+        if ( push ) {
+            var u = new URL( window.location.href );
+            u.searchParams.set( 'tab', tab );
+            window.history.pushState( { themeInfoTab: tab }, '', u.toString() );
+        }
+        return true;
+    }
+
+    nav.addEventListener( 'click', function ( e ) {
+        var a = e.target.closest( '.nav-tab[data-tab]' );
+        // Let modified clicks (new tab / window) behave like normal links.
+        if ( ! a || e.ctrlKey || e.metaKey || e.shiftKey || e.button !== 0 ) {
+            return;
+        }
+        if ( show( a.getAttribute( 'data-tab' ), true ) ) {
+            e.preventDefault();
+        }
+    } );
+
+    window.addEventListener( 'popstate', function () {
+        show( new URL( window.location.href ).searchParams.get( 'tab' ) || 'getting_started', false );
+    } );
+} )();

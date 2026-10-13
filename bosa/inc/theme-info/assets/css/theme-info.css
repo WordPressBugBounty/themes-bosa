@@ -372,3 +372,328 @@ pre.changelog {
 		width: 100%;
 	}
 }
+/* 1.7.0 dashboard */
+.about-wrap.info-wrap h1,
+.about-wrap.info-wrap .about-text {
+	margin-right: 0;
+}
+.about-wrap.info-wrap .about-text {
+	max-width: 780px;
+}
+.theme-version-badge {
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: 6px;
+	padding: 2px 10px;
+	font-size: 13px;
+	line-height: 1.6;
+	font-weight: 600;
+	color: #50575e;
+	background: #dcdcde;
+	border-radius: 20px;
+}
+.info-wrap .col-wrap .col:only-child {
+	width: 100%;
+	max-width: 760px;
+	float: none;
+}
+.info-wrap .col-wrap .col:only-child .col-items {
+	padding: 30px;
+}
+.info-wrap .col-items .plugin-notice {
+	color: #50575e;
+}
+#free_pro {
+	max-width: 1140px;
+	text-align: center;
+}
+#free_pro .free-pro-intro {
+	font-size: 16px;
+	color: #4B5563;
+	margin: 0 0 25px;
+}
+#free_pro .free-pro-cta {
+	margin: 0 0 40px;
+}
+#free_pro .free-pro-cta .button {
+	margin: 0 5px;
+}
+.bosa-table table {
+	width: 100%;
+	border-collapse: collapse;
+	background: #fff;
+}
+.bosa-table table thead th {
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 24px;
+	border: 1px solid #E5E5E5;
+	padding: 15px 20px;
+	text-align: center;
+	background: #ffffff;
+}
+.bosa-table table thead th.pro {
+	background-color: #DCD0ED;
+	border-color: #DCD0ED;
+}
+.bosa-table table tbody th,
+.bosa-table table tbody td {
+	border: 1px solid #E5E5E5;
+	padding: 20px;
+	text-align: center;
+	font-weight: 500;
+	font-size: 15px;
+}
+.bosa-table table tbody th {
+	width: 40%;
+}
+.bosa-table table tbody tr.highlited {
+	background-color: #F1EDFA;
+}
+.bosa-table table tbody tr.highlited td.feature {
+	font-size: 18px;
+}
+.bosa-table table tbody tr.highlited td.feature span {
+	display: block;
+	font-size: 13px;
+	color: #4B5563;
+	margin-top: 4px;
+}
+.bosa-table table tbody tr:hover {
+	color: #222;
+	background-color: #FFF7F6;
+}
+.bosa-table .dashicons-yes {
+	color: #46b450;
+	font-size: 26px;
+	width: 26px;
+	height: 26px;
+}
+.bosa-table .dashicons-no-alt {
+	color: #dc4b2e;
+	font-size: 22px;
+	width: 22px;
+	height: 22px;
+}
+/* Dashboard boxes, styled like the Bosa Starter Sites cards */
+.info-wrap .col-wrap {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+	gap: 16px;
+	margin: 0;
+	padding-top: 24px;
+}
+.info-wrap .col-wrap:before,
+.info-wrap .col-wrap:after {
+	display: none;
+}
+.info-wrap .col-wrap .col,
+.info-wrap .feature-section .col {
+	float: none;
+	width: auto;
+	margin: 0;
+	padding: 0;
+}
+.info-wrap .col-wrap .col:only-child {
+	grid-column: 1 / -1;
+	max-width: 760px;
+	width: auto;
+}
+.info-wrap .feature-section .col-items,
+.info-wrap .col-wrap .col:only-child .col-items {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	height: 100%;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 20px 22px;
+	text-align: left;
+	background: #fff;
+	border: 1px solid #c3c4c7;
+}
+.about-wrap.info-wrap .feature-section .col-items h3 {
+	margin: 8px 0 6px;
+	font-size: 15px;
+	font-weight: 600;
+}
+.about-wrap.info-wrap .feature-section .col-items p {
+	margin: 0 0 16px;
+	font-size: 13px;
+	line-height: 1.6;
+}
+.about-wrap.info-wrap .feature-section .col-items p:last-child {
+	margin: auto 0 0;
+}
+.theme-info-tag {
+	display: inline-block;
+	margin-bottom: 8px;
+	padding: 3px 8px;
+	border-radius: 3px;
+	background: #eeebfb;
+	color: #5b3fd1;
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: .04em;
+	text-transform: uppercase;
+}
+/* Changelog tab (from readme.txt): one collapsible card per release, newest open. */
+.theme-changelog {
+	max-width: 760px;
+	padding-top: 24px !important;
+}
+.theme-changelog-release {
+	margin: 0 0 10px;
+	background: #fff;
+	border: 1px solid #c3c4c7;
+	border-left: 4px solid #8578c6;
+}
+.theme-changelog-release > summary {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 12px 16px;
+	color: #1d2327;
+	font-size: 15px;
+	font-weight: 600;
+	line-height: 1.4;
+	cursor: pointer;
+	list-style: none;
+}
+.theme-changelog-release > summary::-webkit-details-marker {
+	display: none;
+}
+.theme-changelog-release > summary:focus-visible {
+	outline: 2px solid #8578c6;
+	outline-offset: -2px;
+}
+/* Chevron: points right when closed, down when open. */
+.theme-changelog-release > summary::before {
+	content: "";
+	flex: none;
+	width: 6px;
+	height: 6px;
+	margin: 0 4px 2px 2px;
+	border: solid #646970;
+	border-width: 0 2px 2px 0;
+	transform: rotate(-45deg);
+}
+.theme-changelog-release[open] > summary::before {
+	margin: 0 4px 4px 2px;
+	transform: rotate(45deg);
+}
+.theme-changelog-tag {
+	display: inline-block;
+	padding: 3px 8px;
+	border-radius: 3px;
+	background: #f3f1fc;
+	color: #5b3fd1;
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: .04em;
+	text-transform: uppercase;
+}
+.theme-changelog-body {
+	padding: 0 16px 10px 38px;
+}
+.theme-changelog-group {
+	display: inline-block;
+	margin: 4px 0 2px;
+	padding: 2px 6px;
+	border-radius: 3px;
+	background: #f0f0f1;
+	color: #50575e;
+	font-size: 10px;
+	font-weight: 600;
+	letter-spacing: .04em;
+	line-height: 1.4;
+	text-transform: uppercase;
+}
+.theme-changelog-group-added {
+	background: #d1fae5;
+	color: #065f46;
+}
+.theme-changelog-group-updated {
+	background: #ece9fc;
+	color: #624fe0;
+}
+.theme-changelog-group-fixed {
+	background: #fef3c7;
+	color: #92400e;
+}
+.theme-changelog-body ul {
+	margin: 6px 0 10px 18px;
+	list-style: disc;
+}
+.about-wrap .theme-changelog-body li {
+	margin: 0 0 6px;
+	font-size: 13px;
+	line-height: 1.6;
+}
+/* Bosa Pro upgrade banner (image, like BEW's dashboard banner) */
+.bosa-pro-banner {
+	clear: both;
+	max-width: 1050px;
+	margin: 40px 0 20px;
+}
+.bosa-pro-banner a {
+	display: block;
+}
+.bosa-pro-banner img {
+	display: block;
+	width: 100%;
+	height: auto;
+	border-radius: 6px;
+}
+/* No divider line under the tab panels (WordPress about.css adds one). */
+.about-wrap .changelog.theme-info-panel {
+	border-bottom: 0;
+	padding-bottom: 0;
+}
+
+/* Bosa button style: primary buttons match Bosa Starter Sites. */
+.about-wrap.info-wrap .button-primary {
+	background: #f66c5e;
+	border-color: #f66c5e;
+	color: #fff;
+	border-radius: 4px;
+	font-weight: 600;
+	box-shadow: none;
+	text-shadow: none;
+}
+.about-wrap.info-wrap .button-primary:hover,
+.about-wrap.info-wrap .button-primary:focus,
+.about-wrap.info-wrap .button-primary:active {
+	background: #ce4334;
+	border-color: #ce4334;
+	color: #fff;
+	box-shadow: none;
+}
+.about-wrap.info-wrap .button-primary:focus-visible {
+	box-shadow: 0 0 0 2px #fff, 0 0 0 4px #ce4334;
+	outline: none;
+}
+
+/* Button pair: orange primary + outlined secondary, both uppercase (matches Bosa Starter Sites). */
+.about-wrap.info-wrap .button {
+	text-transform: uppercase;
+	letter-spacing: .02em;
+	font-size: 13px;
+}
+.about-wrap.info-wrap .button:not(.button-primary) {
+	background: #fff;
+	border: 1px solid #8578c6;
+	color: #1d2327;
+	border-radius: 4px;
+	font-weight: 600;
+	box-shadow: none;
+	text-shadow: none;
+}
+.about-wrap.info-wrap .button:not(.button-primary):hover,
+.about-wrap.info-wrap .button:not(.button-primary):focus,
+.about-wrap.info-wrap .button:not(.button-primary):active {
+	background: #f3f1fc;
+	border-color: #5b3fd1;
+	color: #1d2327;
+	box-shadow: none;
+}
